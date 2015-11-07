@@ -120,7 +120,7 @@
   <ItemGroup>
     <Folder Include="Login\" />
     <Folder Include="Resources\" />
-    <Folder Include="Resources\fonts\" />
+    <Folder Include="Resources\Fonts\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -153,11 +153,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Resources\fonts\arial narrow bold.ttf" />
-    <None Include="Resources\fonts\arial narrow.ttf" />
-    <None Include="Resources\fonts\myriadpro-bold.otf" />
-    <None Include="Resources\fonts\myriadpro-regular.otf" />
-    <None Include="Resources\fonts\noteworthy.ttc" />
-    <None Include="Resources\fonts\tcmm.ttf" />
+    <None Include="Resources\Fonts\arial narrow bold.ttf" />
+    <None Include="Resources\Fonts\arial narrow.ttf" />
+    <None Include="Resources\Fonts\myriadpro-bold.otf" />
+    <None Include="Resources\Fonts\myriadpro-regular.otf" />
+    <None Include="Resources\Fonts\noteworthy.ttc" />
+    <None Include="Resources\Fonts\tcmm.ttf" />
   </ItemGroup>
 </Project>
