@@ -13,7 +13,12 @@ namespace PaZos
 		public Login (ILoginManager ilm)
 		{
 
-			var button = new Button { Text = "Iniciar sesión" };
+			var button = new Button { 
+				Text = "Iniciar sesión",
+				FontSize = 24,
+				TextColor = Color.FromHex("#FFFFFF"),
+				FontAttributes = FontAttributes.Bold
+			};
 			button.Clicked += (sender, e) => {
 				if (String.IsNullOrEmpty(username.Text) || String.IsNullOrEmpty(password.Text))
 				{
@@ -33,39 +38,77 @@ namespace PaZos
 
 
 			var embeddedImage = new Image { Aspect = Aspect.AspectFill };
-			embeddedImage.Source = ImageSource.FromResource ("PaZos.Resources.iniciarsesion.png");
-			embeddedImage.WidthRequest = 375;
-			embeddedImage.HeightRequest = 680;
+
+
+
+			embeddedImage.Source = ImageSource.FromResource ("PaZos.Resources.login.png");
 
 				
+
 
 			username = new Entry { Text = "" };
-			username.WidthRequest = 280;
+			//username.WidthRequest = 280;
 
 			password = new Entry { Text = "" };
-			password.WidthRequest = 280;
+			//password.WidthRequest = 280;
 
 
 
-			var abslayout = new AbsoluteLayout ();
-			abslayout.Children.Add(embeddedImage, new Point(0,-25));
+			var abslayout = new RelativeLayout  ();
+
+
+			abslayout.Children.Add(embeddedImage, 
+				Constraint.Constant (0),
+				Constraint.Constant (0),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Height;
+				}));
+
 			//abslayout.Children.Add (new Label { Text = "Iniciar sesión", FontSize = Device.GetNamedSize (NamedSize.Large, typeof(Label)) }, new Point (30, 30));
 			//abslayout.Children.Add (new Label { Text = "Username" }, new Point (40, 40));
-			abslayout.Children.Add (username, new Point (45,420));
+			abslayout.Children.Add (username, 
+				Constraint.Constant (45),
+				Constraint.Constant (420),
+				Constraint.RelativeToParent ((Parent) => {
+					return 100;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 25;
+				}));
 			//abslayout.Children.Add (new Label { Text = "Password" }, new Point (50, 50));
-			abslayout.Children.Add (password, new Point (45, 480));
-			abslayout.Children.Add (button, new Point (70,520));
-			abslayout.Children.Add (create, new Point (80, 80));
+			abslayout.Children.Add (password, 
+				Constraint.Constant (45),
+				Constraint.Constant (480),
+				Constraint.RelativeToParent ((Parent) => {
+					return 100;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 25;
+				}));
+			abslayout.Children.Add (button,  
+				Constraint.Constant (115),
+				Constraint.Constant (545),
+				Constraint.RelativeToParent ((Parent) => {
+					return 100;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 25;
+				}));
+			//abslayout.Children.Add (create, new Point (80, 80));
 
 
 
-			ScrollView scrollview = new ScrollView {
-				
+			/*ScrollView scrollview = new ScrollView {
+								
 				Content = abslayout
 
-			};
+			};*/
 
-			Content = scrollview;
+			Content = abslayout;
+			//Content = scrollview;
 			/*Content = new StackLayout {
 				Padding = new Thickness (10, 40, 10, 10),
 				Children = {

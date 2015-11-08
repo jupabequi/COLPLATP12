@@ -41,6 +41,7 @@
 				<Picker x:Name="pkTipoAhorro" Title="Tipo de ahorro" AbsoluteLayout.LayoutBounds="35,315"></Picker>
 
 			</AbsoluteLayout>
+
 		</ScrollView>
 		<!--<StackLayout VerticalOptions="Center" HorizontalOptions="Center" x:Name="stk1">
 			

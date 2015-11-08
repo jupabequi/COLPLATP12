@@ -100,7 +100,7 @@ namespace PaZos
 			};
 
 			Content = new StackLayout {
-				BackgroundColor = Color.White,
+				BackgroundColor = Color.Black,
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				Children = {
 					tableView, 
@@ -117,40 +117,42 @@ namespace PaZos
 			case 1:
 				master.Detail = metas ??
 					(metas = new NavigationPage (
-					new Metas ()
+					new Metas (master)
 				)
 				);
 				break;
 			case 2:
 				master.Detail = acciones ??
 					(acciones = new NavigationPage (
-					new acciones ()
+						new acciones (master)
 				)
 				);
 				break;
 			case 3:
 				master.Detail = evaluacion ??
 					(evaluacion = new NavigationPage (
-					new evaluacion ()
+						new evaluacion (master)
 				)
 				);
 				break;
 			case 4:
 				master.Detail = progreso ??
 					(progreso = new NavigationPage (
-					new progreso ()
+					new progreso (master)
 				)
 				);
 				break;
 			case 5:
 				master.Detail = acerca ??
 					(acerca = new NavigationPage (
-					new acerca ()
+					new acerca (master)
 				)
 				);
 				break;
 
 			}
+
+			master.IsPresented = false;
 
 		}
 	}

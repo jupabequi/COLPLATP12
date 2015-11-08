@@ -11,7 +11,7 @@ namespace PaZos
 		{
 			
 
-			Detail = new NavigationPage (new Metas ());
+			Detail = new NavigationPage (new Metas (this));
 			Master = new MenuPage (this);
 
 
