@@ -29,86 +29,101 @@ namespace PaZos
 					return Parent.Height;
 				}));
 
+			int alto = 40;
+			int ytemp = 70;
 
 
 			var txtNombre = new ExtendedEntry () {
-				Placeholder="Nombre"
+				Placeholder="Nombre",
+				BackgroundColor = Color.White
 			};
 			layout.Children.Add (txtNombre,
 				Constraint.Constant (50),
-				Constraint.Constant (70),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-100;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return alto;
 				}));
+			ytemp = ytemp + alto;
 			var txtApellido = new ExtendedEntry () {
-				Placeholder="Apellido"
+				Placeholder="Apellido",
+				BackgroundColor = Color.White
 			};
 			layout.Children.Add (txtApellido,
 				Constraint.Constant (50),
-				Constraint.Constant (120),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-100;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return alto;
 				}));
 
-
+			ytemp = ytemp + alto+10;
 			var txtCorreo = new ExtendedEntry () {
-				Placeholder="Correo electrónico"
+				Placeholder="Correo electrónico",
+				BackgroundColor = Color.White
 			};
 			layout.Children.Add (txtCorreo,
 				Constraint.Constant (50),
-				Constraint.Constant (180),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-100;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return alto;
 				}));
+			ytemp = ytemp + alto;
 			var txtUsuario = new ExtendedEntry () {
-				Placeholder="Usuario (Nombre para mostrar)"
+				Placeholder="Usuario (Nombre para mostrar)",
+				BackgroundColor = Color.White
 			};
 			layout.Children.Add (txtUsuario,
 				Constraint.Constant (50),
-				Constraint.Constant (230),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-100;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return alto;
 				}));
 
+			ytemp = ytemp + alto+10;
 			var txtclave = new ExtendedEntry () {
-				Placeholder="Contraseña"
+				Placeholder="Contraseña",
+				BackgroundColor = Color.White
 			};
 			layout.Children.Add (txtclave,
 				Constraint.Constant (50),
-				Constraint.Constant (230),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-100;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return alto;
 				}));
+
+			ytemp = ytemp + alto;
 			var txtclave2 = new ExtendedEntry () {
-				Placeholder="Repetir contraseña"
+				Placeholder="Repetir contraseña",
+				BackgroundColor = Color.White
 			};
 			layout.Children.Add (txtclave2,
 				Constraint.Constant (50),
-				Constraint.Constant (230),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-100;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return alto;
 				}));
 
+			ytemp = ytemp + alto+10;
 			var txtedad = new ExtendedPicker () {
-				Title="Edad"
+				Title="Edad",
+				BackgroundColor = Color.White
 			};
 			int i = 0;
 			while (i<100)
@@ -118,16 +133,17 @@ namespace PaZos
 			}
 			layout.Children.Add (txtedad,
 				Constraint.Constant (50),
-				Constraint.Constant (290),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return (Parent.Width-100)/2-5;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return alto;
 				}));
 
 			var pksexo = new ExtendedPicker () {
-				Title="Sexo"
+				Title="Sexo",
+				BackgroundColor = Color.White
 			};
 			Dictionary<string, int> tiposexo = new Dictionary<string, int>
 			{
@@ -143,16 +159,18 @@ namespace PaZos
 				Constraint.RelativeToParent ((Parent) => {
 					return (Parent.Width/2)+5;
 				}),
-				Constraint.Constant (290),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return (Parent.Width-100)/2-5;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return alto;
 				}));
 
+			ytemp = ytemp + alto+10;
 			var pkPais = new ExtendedPicker () {
-				Title="Pais"
+				Title="Pais",
+				BackgroundColor = Color.White
 			};
 			Dictionary<string, int> Dpaises = new Dictionary<string, int>
 			{
@@ -166,16 +184,18 @@ namespace PaZos
 			}
 			layout.Children.Add (pkPais,
 				Constraint.Constant (50),
-				Constraint.Constant (350),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-100;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return alto;
 				}));
-			
+
+			ytemp = ytemp + alto;
 			var pkDepartamento = new ExtendedPicker () {
-				Title="Departamento"
+				Title="Departamento",
+				BackgroundColor = Color.White
 			};
 			Dictionary<string, int> Ddepartamento = new Dictionary<string, int>
 			{
@@ -189,16 +209,18 @@ namespace PaZos
 			}
 			layout.Children.Add (pkDepartamento,
 				Constraint.Constant (50),
-				Constraint.Constant (400),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-100;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return alto;
 				}));
-			
+
+			ytemp = ytemp + alto;
 			var pkCiudad = new ExtendedPicker () {
-				Title="Ciudad o municipio"
+				Title="Ciudad o municipio",
+				BackgroundColor = Color.White
 			};
 			Dictionary<string, int> Dciudad = new Dictionary<string, int>
 			{
@@ -212,13 +234,15 @@ namespace PaZos
 			}
 			layout.Children.Add (pkCiudad,
 				Constraint.Constant (50),
-				Constraint.Constant (450),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-100;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return alto;
 				}));
+
+			ytemp = ytemp + alto+10;
 			var button = new Button { Text = "Iniciar sesión",
 				BackgroundColor = Color.Gray,
 				TextColor = Color.White
@@ -229,46 +253,50 @@ namespace PaZos
 			};
 			layout.Children.Add (button,
 				Constraint.Constant (50),
-				Constraint.Constant (510),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-100;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return alto;
 				}));
+
+			ytemp = ytemp + alto+10;
 			var lbmen1 = new Label () {
 				Text = "Si continúas, aceptas las",
 				VerticalOptions = LayoutOptions.Center
 			};
 			layout.Children.Add (lbmen1,
 				Constraint.Constant (50),
-				Constraint.Constant (570),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-100;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 50;
 				}));
+			ytemp = ytemp + 20;
 			var lbmen2 = new Label () {
 				Text = "condiciones de uso de la aplicación",
 				VerticalOptions = LayoutOptions.Center
 			};
 			layout.Children.Add (lbmen2,
 				Constraint.Constant (50),
-				Constraint.Constant (590),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-100;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 50;
 				}));
+			ytemp = ytemp + 20;
 			var lbmen3 = new Label () {
 				Text = "y la política de privacidad.",
 				VerticalOptions = LayoutOptions.Center
 			};
 			layout.Children.Add (lbmen3,
 				Constraint.Constant (50),
-				Constraint.Constant (610),
+				Constraint.Constant (ytemp),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-100;
 				}),
