@@ -142,6 +142,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\menuicon.png" />
     <EmbeddedResource Include="Resources\login.png" />
+    <EmbeddedResource Include="Resources\FondoLogin.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
