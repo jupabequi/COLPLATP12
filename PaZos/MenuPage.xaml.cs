@@ -33,78 +33,214 @@ namespace PaZos
 			//Icon = "slideout.png";
 			master = masterDetail;
 
-			var embeddedImage = new Image { Aspect = Aspect.AspectFill };
-			embeddedImage.Source = ImageSource.FromResource ("PaZos.Resources.meta.png");
-			embeddedImage.WidthRequest = 50;
-			embeddedImage.HeightRequest = 50;
+			
+			var imgMeta = new Image ();
+			imgMeta.Source = ImageSource.FromResource ("PaZos.Resources.meta.png");
+			
+            var imgAcciones = new Image ();
+			imgAcciones.Source = ImageSource.FromResource ("PaZos.Resources.Acciones.png");
+			
+			var imgEvaluacion = new Image ();
+			imgEvaluacion.Source = ImageSource.FromResource ("PaZos.Resources.Evaluacion.png");
+		
+			var imgprogreso = new Image ();
+			imgprogreso.Source = ImageSource.FromResource ("PaZos.Resources.progreso.png");
+			
+			var imgacercade = new Image ();
+			imgacercade.Source = ImageSource.FromResource ("PaZos.Resources.acercade.png");
+			
+
+			
+            var layout = new RelativeLayout();
 
 
-			ImageCell imgMeta = new ImageCell ();
-			imgMeta.ImageSource = ImageSource.FromResource ("PaZos.Resources.meta.png");
-			imgMeta.Tapped += (sender, args) => {
-				Selected(1);
-			};
-
-			ImageCell imgAcciones = new ImageCell ();
-			imgAcciones.ImageSource = ImageSource.FromResource ("PaZos.Resources.Acciones.png");
-			imgAcciones.Tapped += (sender, args) => {
-				Selected(2);
-			};
-
-			ImageCell imgEvaluacion = new ImageCell ();
-			imgEvaluacion.ImageSource = ImageSource.FromResource ("PaZos.Resources.Evaluacion.png");
-			imgEvaluacion.Tapped += (sender, args) => {
-				Selected(3);
-			};
-
-			ImageCell imgprogreso = new ImageCell ();
-			imgprogreso.ImageSource = ImageSource.FromResource ("PaZos.Resources.progreso.png");
-			imgprogreso.Tapped += (sender, args) => {
-				Selected(4);
-			};
-
-			ImageCell imgacercade = new ImageCell ();
-			imgacercade.ImageSource = ImageSource.FromResource ("PaZos.Resources.acercade.png");
-			imgacercade.Tapped += (sender, args) => {
-				Selected(5);
-			};
-
-
-
-
-			var section = new TableSection () {
-				imgMeta,
-				imgAcciones,
-				imgEvaluacion,
-				imgprogreso,
-				imgacercade
-			};
-
-
-
-
-
-
-			var root = new TableRoot () {section} ;
-
-			tableView = new TableView ()
-			{ 
-				Root = root,
-				Intent = TableIntent.Menu,
-				WidthRequest = 100
-			};
 
 			var logoutButton = new Button { Text = "Logout" };
 			logoutButton.Clicked += (sender, e) => {
 				App.Current.Logout();
 			};
 
+            layout.Children.Add(imgMeta,
+                Constraint.Constant(0),
+                Constraint.Constant(0),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 270;
+                }),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 60;
+                }));
+            var lbMeta = new Button()
+            {
+                Text = "",
+                TextColor = Color.White,
+                Opacity=0
+                //BackgroundColor = Color.Blue
+            };
+            lbMeta.Clicked += (sender, args) =>
+            {
+                Selected(1);
+            };
+
+            layout.Children.Add(lbMeta,
+                Constraint.Constant(0),
+                Constraint.Constant(0),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 270;
+                }),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 60;
+                }));
+
+            layout.Children.Add(imgAcciones,
+                Constraint.Constant(0),
+                Constraint.Constant(60),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 270;
+                }),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 60;
+                }));
+            var lbAcciones = new Button()
+            {
+                Text = "",
+                TextColor = Color.White,
+                Opacity = 0
+                //BackgroundColor = Color.Blue
+            };
+            lbAcciones.Clicked += (sender, args) =>
+            {
+                Selected(2);
+            };
+
+            layout.Children.Add(lbAcciones,
+                Constraint.Constant(0),
+                Constraint.Constant(60),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 270;
+                }),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 60;
+                }));
+            
+            
+            layout.Children.Add(imgEvaluacion,
+                Constraint.Constant(0),
+                Constraint.Constant(120),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 270;
+                }),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 60;
+                }));
+            var lbEvaluacion = new Button()
+            {
+                Text = "",
+                TextColor = Color.White,
+                Opacity = 0
+                //BackgroundColor = Color.Blue
+            };
+            lbEvaluacion.Clicked += (sender, args) =>
+            {
+                Selected(3);
+            };
+
+            layout.Children.Add(lbEvaluacion,
+                Constraint.Constant(0),
+                Constraint.Constant(120),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 270;
+                }),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 60;
+                }));
+
+            layout.Children.Add(imgprogreso,
+                Constraint.Constant(0),
+                Constraint.Constant(180),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 270;
+                }),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 60;
+                }));
+            var lbprogreso = new Button()
+            {
+                Text = "",
+                TextColor = Color.White,
+                Opacity = 0
+                //BackgroundColor = Color.Blue
+            };
+            lbprogreso.Clicked += (sender, args) =>
+            {
+                Selected(4);
+            };
+
+            layout.Children.Add(lbprogreso,
+                Constraint.Constant(0),
+                Constraint.Constant(180),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 270;
+                }),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 60;
+                }));
+            layout.Children.Add(imgacercade,
+                Constraint.Constant(0),
+                Constraint.Constant(240),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 270;
+                }),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 60;
+                }));
+            var lbacercade = new Button()
+            {
+                Text = "",
+                TextColor = Color.White,
+                Opacity = 0
+                //BackgroundColor = Color.Blue
+            };
+            lbacercade.Clicked += (sender, args) =>
+            {
+                Selected(5);
+            };
+
+            layout.Children.Add(lbacercade,
+                Constraint.Constant(0),
+                Constraint.Constant(240),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 270;
+                }),
+                Constraint.RelativeToParent((Parent) =>
+                {
+                    return 60;
+                }));
+            //Content = layout;
 			Content = new StackLayout {
 				BackgroundColor = Color.Black,
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				Children = {
-					tableView, 
-					logoutButton
+					layout,
+                    logoutButton
 				}
 			};
 

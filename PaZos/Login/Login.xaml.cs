@@ -46,10 +46,13 @@ namespace PaZos
 				
 
 
-			username = new Entry { Text = "" };
+			username = new Entry { Text = "Usuario",
+            TextColor=Color.Black
+            };
 			//username.WidthRequest = 280;
 
-			password = new Entry { Text = "" };
+			password = new Entry { Text = "Contrasena",
+            TextColor=Color.Black };
 			//password.WidthRequest = 280;
 
 
@@ -70,32 +73,32 @@ namespace PaZos
 			//abslayout.Children.Add (new Label { Text = "Iniciar sesión", FontSize = Device.GetNamedSize (NamedSize.Large, typeof(Label)) }, new Point (30, 30));
 			//abslayout.Children.Add (new Label { Text = "Username" }, new Point (40, 40));
 			abslayout.Children.Add (username, 
-				Constraint.Constant (45),
-				Constraint.Constant (420),
+				Constraint.Constant (38),
+				Constraint.Constant (342),
 				Constraint.RelativeToParent ((Parent) => {
-					return 100;
+					return 250;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 25;
+					return 50;
 				}));
 			//abslayout.Children.Add (new Label { Text = "Password" }, new Point (50, 50));
 			abslayout.Children.Add (password, 
-				Constraint.Constant (45),
-				Constraint.Constant (480),
+				Constraint.Constant (38),
+				Constraint.Constant (395),
 				Constraint.RelativeToParent ((Parent) => {
-					return 100;
+					return 250;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 25;
+					return 50;
 				}));
 			abslayout.Children.Add (button,  
-				Constraint.Constant (115),
-				Constraint.Constant (545),
+				Constraint.Constant (30),
+				Constraint.Constant (460),
 				Constraint.RelativeToParent ((Parent) => {
-					return 100;
+					return 305;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 25;
+					return 60;
 				}));
 			//abslayout.Children.Add (create, new Point (80, 80));
 
