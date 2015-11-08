@@ -333,6 +333,14 @@ namespace PaZos
 				}
 			};*/
 		}
+
+		protected async override void OnAppearing ()
+		{
+			base.OnAppearing ();
+
+			var s = await new RestUsuarios().get();
+			Label e = new Label ();
+		}
 	}
 }
 
