@@ -2,11 +2,9 @@
 
 namespace PaZos
 {
-	public class Constants
+	public static class Constants
 	{
-		public Constants ()
-		{
-		}
+		public string ServiceUrl = "http://localhost:8888/pazos/{0}.php";
 	}
 }
 
