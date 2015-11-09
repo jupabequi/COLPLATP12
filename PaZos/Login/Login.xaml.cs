@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
-using XLabs.Forms;
+using XLabs.Forms.Controls;
 
 namespace PaZos
 {
 	public partial class Login : ContentPage
 	{
-		Entry username, password;
+		ExtendedEntry username, password;
 
 		public Login (ILoginManager ilm)
 		{
@@ -17,7 +17,8 @@ namespace PaZos
 				Text = "Iniciar sesión",
 				FontSize = 24,
 				TextColor = Color.FromHex("#FFFFFF"),
-				FontAttributes = FontAttributes.Bold
+				FontAttributes = FontAttributes.Bold,
+				BackgroundColor = Color.Gray
 			};
 			button.Clicked += (sender, e) => {
 				if (String.IsNullOrEmpty(username.Text) || String.IsNullOrEmpty(password.Text))
@@ -38,23 +39,29 @@ namespace PaZos
 
 
 			var embeddedImage = new Image { Aspect = Aspect.AspectFill };
-
-
-
-			embeddedImage.Source = ImageSource.FromResource ("PaZos.Resources.login.png");
+			embeddedImage.Source = ImageSource.FromResource ("PaZos.Resources.FondoLogin.png");
 
 				
 
 
-			username = new Entry { Text = "Usuario",
-            TextColor=Color.Black
+			username = new ExtendedEntry {
+             Placeholder="Usuario",
+				BackgroundColor = Color.White
             };
 			//username.WidthRequest = 280;
 
-			password = new Entry { Text = "Contrasena",
-            TextColor=Color.Black };
+			password = new ExtendedEntry { 
+				Placeholder="Contraseña",
+				BackgroundColor = Color.White
+			
+			};
 			//password.WidthRequest = 280;
 
+			var btnolvido = new Button {
+				Text = "¿Olvidaste la contraseña?",
+				TextColor = Color.Black,
+				VerticalOptions = LayoutOptions.Center
+			};
 
 
 			var abslayout = new RelativeLayout  ();
@@ -70,36 +77,104 @@ namespace PaZos
 					return Parent.Height;
 				}));
 
+			var Personaje = new Image { Aspect = Aspect.AspectFit };
+			Personaje.Source = ImageSource.FromResource ("PaZos.Resources.personajelogin.png");
+
+			abslayout.Children.Add(Personaje, 
+				Constraint.Constant (25),
+				Constraint.Constant (50),
+				Constraint.RelativeToParent ((Parent) => {
+					if(Parent.Width-50>375)
+					{
+						return 375;	
+					}else{
+						return Parent.Width-50;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					if(Parent.Width>375){
+						return 350;
+					}else{
+						return (Parent.Width-50)*350/375;
+					}
+				}));
+
+
+
+			int y = 50 + 350;
 			//abslayout.Children.Add (new Label { Text = "Iniciar sesión", FontSize = Device.GetNamedSize (NamedSize.Large, typeof(Label)) }, new Point (30, 30));
 			//abslayout.Children.Add (new Label { Text = "Username" }, new Point (40, 40));
 			abslayout.Children.Add (username, 
-				Constraint.Constant (38),
-				Constraint.Constant (342),
+				Constraint.Constant (30),
 				Constraint.RelativeToParent ((Parent) => {
-					return 250;
+					if(Parent.Width-50>375){
+						return y;
+					}else{
+						return y-(350-((Parent.Width-50)*350/375));
+
+					}
+
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width - 60;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 50;
 				}));
 			//abslayout.Children.Add (new Label { Text = "Password" }, new Point (50, 50));
 			abslayout.Children.Add (password, 
-				Constraint.Constant (38),
-				Constraint.Constant (395),
+				Constraint.Constant (30),
 				Constraint.RelativeToParent ((Parent) => {
-					return 250;
+					if(Parent.Width-50>375){
+						return y+50;
+					}else{
+						return (y+50)-(350-((Parent.Width-50)*350/375));
+
+					}
+
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width-60;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 50;
 				}));
 			abslayout.Children.Add (button,  
 				Constraint.Constant (30),
-				Constraint.Constant (460),
 				Constraint.RelativeToParent ((Parent) => {
-					return 305;
+					if(Parent.Width-50>375){
+						return y+50*2+10;
+					}else{
+						return (y+50*2+10)-(350-((Parent.Width-50)*350/375));
+
+					}
+
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width - 60;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 60;
 				}));
+
+			abslayout.Children.Add (btnolvido,  
+				Constraint.Constant (30),
+				Constraint.RelativeToParent ((Parent) => {
+					if(Parent.Width-50>375){
+						return y+50*2+10+70;
+					}else{
+						return (y+50*2+10+70)-(350-((Parent.Width-50)*350/375));
+
+					}
+
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width - 60;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 30;
+				}));
+
 			//abslayout.Children.Add (create, new Point (80, 80));
 
 

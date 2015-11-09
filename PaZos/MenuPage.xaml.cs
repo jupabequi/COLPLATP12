@@ -33,9 +33,23 @@ namespace PaZos
 			//Icon = "slideout.png";
 			master = masterDetail;
 
-			
+
+			var layout = new RelativeLayout();
+
+			var Fondo = new Image { Aspect = Aspect.AspectFill };
+			Fondo.Source = ImageSource.FromResource ("PaZos.Resources.FondoLogin.png");
+			layout.Children.Add(Fondo, 
+				Constraint.Constant (0),
+				Constraint.Constant (0),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Height-40;
+				}));
+
 			var imgMeta = new Image ();
-			imgMeta.Source = ImageSource.FromResource ("PaZos.Resources.meta.png");
+			imgMeta.Source = ImageSource.FromResource ("PaZos.Resources.metas.png");
 			
             var imgAcciones = new Image ();
 			imgAcciones.Source = ImageSource.FromResource ("PaZos.Resources.Acciones.png");
@@ -51,7 +65,7 @@ namespace PaZos
 			
 
 			
-            var layout = new RelativeLayout();
+            
 
 
 
@@ -60,9 +74,11 @@ namespace PaZos
 				App.Current.Logout();
 			};
 
+			int y = 30;
+
             layout.Children.Add(imgMeta,
                 Constraint.Constant(0),
-                Constraint.Constant(0),
+                Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
                     return 270;
@@ -73,19 +89,21 @@ namespace PaZos
                 }));
             var lbMeta = new Button()
             {
-                Text = "",
+                Text = "Metas",
                 TextColor = Color.White,
-                Opacity=0
-                //BackgroundColor = Color.Blue
+				FontSize=26,
+				FontFamily =  "MyriadPro-Bold",
+				VerticalOptions = LayoutOptions.Center,
+				HorizontalOptions = LayoutOptions.Center
             };
             lbMeta.Clicked += (sender, args) =>
             {
                 Selected(1);
             };
 
-            layout.Children.Add(lbMeta,
+			layout.Children.Add(lbMeta,
                 Constraint.Constant(0),
-                Constraint.Constant(0),
+                Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
                     return 270;
@@ -95,9 +113,10 @@ namespace PaZos
                     return 60;
                 }));
 
+			y=y+60;
             layout.Children.Add(imgAcciones,
                 Constraint.Constant(0),
-                Constraint.Constant(60),
+                Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
                     return 270;
@@ -108,19 +127,22 @@ namespace PaZos
                 }));
             var lbAcciones = new Button()
             {
-                Text = "",
+                Text = "Acciones ahorradoras",
                 TextColor = Color.White,
-                Opacity = 0
-                //BackgroundColor = Color.Blue
+				FontSize=26,
+				FontFamily =  "MyriadPro-Bold",
+				VerticalOptions = LayoutOptions.Center,
+				HorizontalOptions = LayoutOptions.Center
             };
             lbAcciones.Clicked += (sender, args) =>
             {
                 Selected(2);
             };
 
+
             layout.Children.Add(lbAcciones,
                 Constraint.Constant(0),
-                Constraint.Constant(60),
+                Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
                     return 270;
@@ -130,10 +152,10 @@ namespace PaZos
                     return 60;
                 }));
             
-            
+			y=y+60;
             layout.Children.Add(imgEvaluacion,
                 Constraint.Constant(0),
-                Constraint.Constant(120),
+                Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
                     return 270;
@@ -144,10 +166,12 @@ namespace PaZos
                 }));
             var lbEvaluacion = new Button()
             {
-                Text = "",
+                Text = "Evaluación del día",
                 TextColor = Color.White,
-                Opacity = 0
-                //BackgroundColor = Color.Blue
+				FontSize=26,
+				FontFamily =  "MyriadPro-Bold",
+				VerticalOptions = LayoutOptions.Center,
+				HorizontalOptions = LayoutOptions.Center
             };
             lbEvaluacion.Clicked += (sender, args) =>
             {
@@ -156,7 +180,7 @@ namespace PaZos
 
             layout.Children.Add(lbEvaluacion,
                 Constraint.Constant(0),
-                Constraint.Constant(120),
+                Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
                     return 270;
@@ -165,10 +189,10 @@ namespace PaZos
                 {
                     return 60;
                 }));
-
+			y=y+60;
             layout.Children.Add(imgprogreso,
                 Constraint.Constant(0),
-                Constraint.Constant(180),
+                Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
                     return 270;
@@ -179,10 +203,12 @@ namespace PaZos
                 }));
             var lbprogreso = new Button()
             {
-                Text = "",
+                Text = "Progreso",
                 TextColor = Color.White,
-                Opacity = 0
-                //BackgroundColor = Color.Blue
+				FontSize=26,
+				FontFamily =  "MyriadPro-Bold",
+				VerticalOptions = LayoutOptions.Center,
+				HorizontalOptions = LayoutOptions.Center
             };
             lbprogreso.Clicked += (sender, args) =>
             {
@@ -191,7 +217,7 @@ namespace PaZos
 
             layout.Children.Add(lbprogreso,
                 Constraint.Constant(0),
-                Constraint.Constant(180),
+                Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
                     return 270;
@@ -200,9 +226,11 @@ namespace PaZos
                 {
                     return 60;
                 }));
+
+			y=y+60;
             layout.Children.Add(imgacercade,
                 Constraint.Constant(0),
-                Constraint.Constant(240),
+				Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
                     return 270;
@@ -213,10 +241,12 @@ namespace PaZos
                 }));
             var lbacercade = new Button()
             {
-                Text = "",
+                Text = "Acerca de..",
                 TextColor = Color.White,
-                Opacity = 0
-                //BackgroundColor = Color.Blue
+				FontSize=26,
+				FontFamily =  "MyriadPro-Bold",
+				VerticalOptions = LayoutOptions.Center,
+				HorizontalOptions = LayoutOptions.Center
             };
             lbacercade.Clicked += (sender, args) =>
             {
@@ -225,7 +255,7 @@ namespace PaZos
 
             layout.Children.Add(lbacercade,
                 Constraint.Constant(0),
-                Constraint.Constant(240),
+                Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
                     return 270;
@@ -234,6 +264,8 @@ namespace PaZos
                 {
                     return 60;
                 }));
+
+
             //Content = layout;
 			Content = new StackLayout {
 				BackgroundColor = Color.Black,

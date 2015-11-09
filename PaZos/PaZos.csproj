@@ -108,10 +108,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\iniciarsesion.png" />
-    <EmbeddedResource Include="Resources\Acciones.png" />
-    <EmbeddedResource Include="Resources\Evaluacion.png" />
-    <EmbeddedResource Include="Resources\acercade.png" />
-    <EmbeddedResource Include="Resources\progreso.png" />
     <EmbeddedResource Include="acciones.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -146,6 +142,12 @@
     <EmbeddedResource Include="Resources\menuicon.png" />
     <EmbeddedResource Include="Resources\login.png" />
     <EmbeddedResource Include="Resources\FondoLogin.png" />
+    <EmbeddedResource Include="Resources\personajelogin.png" />
+    <EmbeddedResource Include="Resources\Acciones.png" />
+    <EmbeddedResource Include="Resources\acercade.png" />
+    <EmbeddedResource Include="Resources\Evaluacion.png" />
+    <EmbeddedResource Include="Resources\progreso.png" />
+    <EmbeddedResource Include="Resources\metas.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -194,10 +196,12 @@
     <None Include="packages.config" />
     <None Include="Resources\Fonts\arial narrow bold.ttf" />
     <None Include="Resources\Fonts\arial narrow.ttf" />
-    <None Include="Resources\Fonts\myriadpro-bold.otf" />
     <None Include="Resources\Fonts\myriadpro-regular.otf" />
     <None Include="Resources\Fonts\noteworthy.ttc" />
     <None Include="Resources\Fonts\tcmm.ttf" />
+    <None Include="Resources\Fonts\myriadpro-bold.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Code\" />

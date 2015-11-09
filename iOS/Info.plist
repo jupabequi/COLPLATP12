@@ -63,7 +63,7 @@
 	<array>
 		<string>fonts/arial narrow.ttf</string>
 		<string>fonts/arial narrow bold.ttf</string>
-		<string>fonts/myriadpro-bold.otf</string>
+		<string>Fonts/myriadpro-bold.otf</string>
 		<string>fonts/myriadpro-regular.otf</string>
 		<string>fonts/noteworthy.ttc</string>
 		<string>fonts/tcmm.ttf</string>
