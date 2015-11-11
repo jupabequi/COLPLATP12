@@ -23,6 +23,9 @@ namespace PaZos.iOS
 
 			LoadApplication (new App ());
 
+			UINavigationBar.Appearance.BarTintColor = UIColor.Orange;
+			UINavigationBar.Appearance.SetTitleTextAttributes ( new UITextAttributes { TextColor = UIColor.White});
+
 			return base.FinishedLaunching (app, options);
 		}
 	}
