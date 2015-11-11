@@ -535,13 +535,27 @@ namespace PaZos
 				pkTipoMeta3.Items.Add (tipoMeta);
 			}
 
+			// Dictionary to get Color from color name.
+			Dictionary<string, int> tiposAhorro = new Dictionary<string, int> {
+				{ "Ahorro diario", 1 }, 
+				{ "Ahorro semanal", 2 },
+				{ "Ahorro mensual", 3 }
+			};
+
+			foreach (string tipoAhorro in tiposAhorro.Keys) {
+				pkTipoAhorro.Items.Add (tipoAhorro);
+				pkTipoAhorro2.Items.Add (tipoAhorro);
+				pkTipoAhorro3.Items.Add (tipoAhorro);
+			}
+
+			ScrollView scrollview = new ScrollView {
+
+				Content = layout
+
+			};
 
 
-
-
-
-
-			Content = layout;
+			Content = scrollview;
 
 		}
 
