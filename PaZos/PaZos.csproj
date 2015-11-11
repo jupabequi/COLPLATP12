@@ -148,6 +148,9 @@
     <EmbeddedResource Include="Resources\Evaluacion.png" />
     <EmbeddedResource Include="Resources\progreso.png" />
     <EmbeddedResource Include="Resources\metas.png" />
+    <EmbeddedResource Include="Resources\Metas\btmeta2.png" />
+    <EmbeddedResource Include="Resources\Metas\btnmeta1.png" />
+    <EmbeddedResource Include="Resources\Metas\btnmeta3.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -208,5 +211,6 @@
     <Folder Include="Code\Data\" />
     <Folder Include="Code\Data\Entities\" />
     <Folder Include="Code\Data\Services\" />
+    <Folder Include="Resources\Metas\" />
   </ItemGroup>
 </Project>
