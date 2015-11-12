@@ -9,20 +9,31 @@ namespace PaZos
 	{
 		public MainPage ()
 		{
-			
+			var menupage = new MenuPage (this);
+
+			//menupage.lbAcciones.Clicked += (sender, e) => NavigateTo (2);
 
 			Detail = new NavigationPage (new Metas (this));
-			Master = new MenuPage (this);
+			//Detail = new NavigationPage (new acciones ());
+			Master = menupage;
 
 
 
 		}
 
-/*		void NavigateTo(MenuItem menu)
+		void NavigateTo (int menu)
 		{
-			Page displayPage = (Page)Activator.CreateInstance (menu.Tar
+			
+			//((NavigationPage)this.Detail).PushAsync(new acciones(mas));
+			/*Page displayPage = (Page)Activator.CreateInstance (typeof(acciones));
 
-		}*/
+			Detail = new NavigationPage (displayPage);*/
+
+
+			IsPresented = false;
+		}
+
+
 	}
 }
 

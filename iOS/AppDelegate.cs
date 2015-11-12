@@ -23,8 +23,10 @@ namespace PaZos.iOS
 
 			LoadApplication (new App ());
 
-			UINavigationBar.Appearance.BarTintColor = UIColor.Orange;
-			UINavigationBar.Appearance.SetTitleTextAttributes ( new UITextAttributes { TextColor = UIColor.White});
+			UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(232,78,27);
+			UINavigationBar.Appearance.SetTitleTextAttributes ( new UITextAttributes { TextColor = UIColor.White,
+				Font = UIFont.FromName("MyriadPro-Bold",24)
+			});
 
 			return base.FinishedLaunching (app, options);
 		}

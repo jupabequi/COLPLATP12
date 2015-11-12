@@ -23,6 +23,8 @@ namespace PaZos
 		private NavigationPage progreso;
 		private NavigationPage acerca;
 
+		public Button lbAcciones;
+
 
 		public MenuPage (MasterDetailPage masterDetail)
 		{
@@ -125,7 +127,7 @@ namespace PaZos
                 {
                     return 60;
                 }));
-            var lbAcciones = new Button()
+            lbAcciones = new Button()
             {
                 Text = "Acciones ahorradoras",
                 TextColor = Color.White,
@@ -280,42 +282,56 @@ namespace PaZos
 
 		public void Selected(int option)
 		{
+
+			var mx = new MainPage ();
+
+			MasterDetailPage md = new MasterDetailPage ();
+			md.Master = new MenuPage (md);
+			/*
+			master = md;
+*/
 			switch (option) {
 
 			case 1:
-				master.Detail = metas ??
+				((NavigationPage)master.Detail).PushAsync(new Metas(master));
+				/*master.Detail = metas ??
 					(metas = new NavigationPage (
 					new Metas (master)
 				)
-				);
+				);*/
 				break;
 			case 2:
-				master.Detail = acciones ??
+				
+				((NavigationPage)master.Detail).PushAsync(new acciones(master));
+				/*master.Detail = acciones ??
 					(acciones = new NavigationPage (
-						new acciones (master)
+						new acciones ()
 				)
-				);
+				);*/
 				break;
 			case 3:
-				master.Detail = evaluacion ??
+				((NavigationPage)master.Detail).PushAsync(new evaluacion(master));
+				/*master.Detail = evaluacion ??
 					(evaluacion = new NavigationPage (
 						new evaluacion (master)
 				)
-				);
+				);*/
 				break;
 			case 4:
-				master.Detail = progreso ??
+				((NavigationPage)master.Detail).PushAsync(new PaZos.progreso(master));
+				/*master.Detail = progreso ??
 					(progreso = new NavigationPage (
 					new progreso (master)
 				)
-				);
+				);*/
 				break;
 			case 5:
-				master.Detail = acerca ??
+				((NavigationPage)master.Detail).PushAsync(new PaZos.acerca(master));
+				/*master.Detail = acerca ??
 					(acerca = new NavigationPage (
 					new acerca (master)
 				)
-				);
+				);*/
 				break;
 
 			}

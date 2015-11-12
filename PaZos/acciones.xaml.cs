@@ -15,6 +15,8 @@ namespace PaZos
 		public acciones (MasterDetailPage masterDetail)
 		{
 
+			this.Title = "Acciones ahorradoras";
+
 			master = masterDetail;
 
 			RelativeLayout layout = new RelativeLayout ();
@@ -37,6 +39,7 @@ namespace PaZos
 			//Fin Colocar background 
 
 
+
 			//Dias
 			var imgDias = new Image () {
 				Source = ImageSource.FromResource ("PaZos.Resources.AccionesDias.png"),
@@ -45,7 +48,7 @@ namespace PaZos
 
 			layout.Children.Add (imgDias,
 				Constraint.Constant (0),
-				Constraint.Constant (0),
+				Constraint.Constant (-40),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width;
 				}),
@@ -55,9 +58,65 @@ namespace PaZos
 
 			//End Dias
 
+			Label lblTitle = new Label () {
+				Text = "¿Cuánto debes ahorrar para cumplir tus metas?",
+				FontSize = 20,
+				FontFamily = "MyriadPro-Bold",
+				HorizontalOptions=LayoutOptions.Center,
+				XAlign= TextAlignment.Center
+			};
+
+			layout.Children.Add (lblTitle,
+				Constraint.Constant (20),
+				Constraint.Constant (5),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width-40;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 50;
+				}));
+
+			Label lbtexto = new Label ();
+			lbtexto.HorizontalOptions = LayoutOptions.CenterAndExpand;
+			lbtexto.XAlign = TextAlignment.Center;
+
+			var fs = new FormattedString ();
+
+
+			Span sp1 = new Span () {
+				Text = "Ingresa en este calendario las ",
+				FontFamily = "MyriadPro-Regular",
+				FontSize=13
+			};
+			fs.Spans.Add (sp1);
+			Span sp2 = new Span () {
+				Text = "acciones ahorradoras",
+				FontFamily = "MyriadPro-Bold",
+				FontSize=13
+			};
+			fs.Spans.Add (sp2);
+			Span sp3 = new Span () {
+				Text = " que puedes hacer cada día de la semana.",
+				FontFamily = "MyriadPro-Regular",
+				FontSize=13
+			};
+			fs.Spans.Add (sp3);
+			lbtexto.FormattedText = fs;
+
+			layout.Children.Add (lbtexto,
+				Constraint.Constant (20),
+				Constraint.Constant (52),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width-40;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 80;
+				}));	
+
+
 
 			int x = 118;
-			int y = 172;
+			int y = 132;
 			int gap = 62;
 				
 			var lblunes = new Button () {
@@ -212,11 +271,13 @@ namespace PaZos
 		public void Selected(int dia)
 		{
 
-			NPdias = new NavigationPage (
+
+			((NavigationPage)master.Detail).PushAsync(new PaZos.AccionesDia(master, dia));
+			/*(NPdias = new NavigationPage (
 				new AccionesDia (master, dia)
 			);
 
-			master.Detail = NPdias;
+			master.Detail = NPdias;*/
 			
 		}
 	}
