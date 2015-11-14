@@ -22,9 +22,9 @@ namespace PaZos
 			client.MaxResponseContentBufferSize = 256000;
 		}
 
-		public async Task<List<Usuario>> get ()
+		public async Task<List<Usuario>> get (string usuario, string contrasena)
 		{			
-			var uri = new Uri (string.Format (ServiceUrl + "?action=1", string.Empty));
+			var uri = new Uri (string.Format (ServiceUrl + "?action=1&usuario={0}&contrasena={1}", usuario, contrasena));
 
 			try 
 			{

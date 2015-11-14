@@ -38,16 +38,16 @@ namespace PaZos
 			MainPage = new PaZos.RegistroModalPage (this);
 		}
 
-		public void ShowLogin ()
+		public void ShowLogin (string usuario)
 		{	
-			MainPage = new PaZos.LoginModalPage (this);
+			MainPage = new PaZos.LoginModalPage (this, usuario);
 		}
 
 
 		public void Logout ()
 		{
 			Properties ["IsLoggedIn"] = false; // only gets set to 'true' on the LoginPage
-			MainPage = new PaZos.LoginModalPage (this);
+			MainPage = new PaZos.LoginModalPage (this,null);
 			//((NavigationPage)master.Detail).PushAsync(new PaZos.LoginModalPage(this));
 		}
 

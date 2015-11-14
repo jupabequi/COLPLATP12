@@ -13,11 +13,11 @@
                         <viewControllerLayoutGuide type="bottom" id="9ZL-r4-8FZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yd7-JS-zBw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" misplaced="YES" image="launch640x960.png" translatesAutoresizingMaskIntoConstraints="NO" id="23" autoresizesSubviews="NO">
-                                <rect key="frame" x="90" y="0.0" width="403" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="launch320x480.png" translatesAutoresizingMaskIntoConstraints="NO" id="23" autoresizesSubviews="NO" tag="0">
+                                <rect key="frame" x="-86" y="46" width="461" height="622"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -47,6 +47,7 @@
         <image name="Fonts/arial narrow bold.ttf" width="0" height="0"/>
         <image name="Fonts/arial narrow.ttf" width="0" height="0"/>
         <image name="Fonts/tcmm.ttf" width="0" height="0"/>
+        <image name="launch320x480.png" width="320" height="480"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedScreenMetrics key="destination" type="retina47"/>

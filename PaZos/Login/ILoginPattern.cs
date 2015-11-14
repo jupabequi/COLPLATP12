@@ -6,7 +6,7 @@ namespace PaZos
 		void ShowMainPage ();
 		void Logout();
 		void ShowRegistro ();
-		void ShowLogin();
+		void ShowLogin(string usuario);
 	}
 }
 

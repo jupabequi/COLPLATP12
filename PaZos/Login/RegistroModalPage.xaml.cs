@@ -10,7 +10,7 @@ namespace PaZos
 		ContentPage login, create;
 		public RegistroModalPage (ILoginManager ilm)
 		{
-			login = new Login (ilm);
+			login = new Login (ilm,null);
 			create = new Registro (ilm);
 
 			this.Children.Add (create);

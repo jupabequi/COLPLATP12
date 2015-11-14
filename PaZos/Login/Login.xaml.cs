@@ -10,7 +10,11 @@ namespace PaZos
 	{
 		ExtendedEntry username, password;
 
-		public Login (ILoginManager ilm)
+		int respuesta;
+		List<Usuario> usuario;
+
+
+		public Login (ILoginManager ilm, string usuario)
 		{
 
 			var button = new Button { 
@@ -23,11 +27,11 @@ namespace PaZos
 			button.Clicked += (sender, e) => {
 				if (String.IsNullOrEmpty(username.Text) || String.IsNullOrEmpty(password.Text))
 				{
-					DisplayAlert("Error de validación", "Username y contraseña son requeridos", "Intente nuevamente");
+					DisplayAlert("Error de validación", "Usuario y contraseña son requeridos", "Intente nuevamente");
 				} else {
 					// REMEMBER LOGIN STATUS!
-					App.Current.Properties["IsLoggedIn"] = true;
-					ilm.ShowMainPage();
+					CompruebaUser(ilm);
+
 				}
 			};
 			var create = new Button { Text = "Crear cuenta" };
@@ -48,11 +52,16 @@ namespace PaZos
              Placeholder="Usuario",
 				BackgroundColor = Color.White
             };
+
+			if (usuario != null) {
+				username.Text = usuario;
+			}
 			//username.WidthRequest = 280;
 
 			password = new ExtendedEntry { 
 				Placeholder="Contraseña",
-				BackgroundColor = Color.White
+				BackgroundColor = Color.White,
+				IsPassword=true
 			
 			};
 			//password.WidthRequest = 280;
@@ -204,6 +213,28 @@ namespace PaZos
 
 		}
 
+		protected async void CompruebaUser(ILoginManager ilm){
+
+			respuesta = 0;
+			usuario = await new RestUsuarios ().get(username.Text,password.Text);
+
+			if (usuario.Count > 0) {
+				respuesta = 1;
+			}
+
+			if(respuesta==1){
+
+				App.Current.Properties["IsLoggedIn"] = true;
+				ilm.ShowMainPage();
+			}else{
+				DisplayAlert("Error de validación", "Usuario o contraseña incorrecto.", "Intente nuevamente");
+			}
+
+
+
+		
+
+		}
 
 	}
 }

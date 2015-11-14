@@ -49,7 +49,7 @@ namespace PaZos
 				HasBorder=true
 			};
 
-			txtNombre.Behaviors.Add (new MaxLengthValidator { MaxLength = 2 });
+			txtNombre.Behaviors.Add (new MaxLengthValidator { MaxLength = 40 });
 
 			layout.Children.Add (txtNombre,
 				Constraint.Constant (50),
@@ -77,6 +77,9 @@ namespace PaZos
 					return alto;
 				}));
 
+			txtApellido.Behaviors.Add (new MaxLengthValidator { MaxLength = 40 });
+
+
 			ytemp = ytemp + alto+10;
 			var txtCorreo = new ExtendedEntry () {
 				Placeholder="Correo electrónico",
@@ -93,6 +96,9 @@ namespace PaZos
 				Constraint.RelativeToParent ((Parent) => {
 					return alto;
 				}));
+			txtCorreo.Behaviors.Add (new EmailValidatorBehavior());
+
+
 			ytemp = ytemp + alto;
 			var txtUsuario = new ExtendedEntry () {
 				Placeholder="Usuario (Nombre para mostrar)",
@@ -109,6 +115,7 @@ namespace PaZos
 				Constraint.RelativeToParent ((Parent) => {
 					return alto;
 				}));
+			txtUsuario.Behaviors.Add (new MaxLengthValidator { MaxLength = 10 });
 
 			ytemp = ytemp + alto+10;
 			var txtclave = new ExtendedEntry () {
@@ -127,6 +134,7 @@ namespace PaZos
 				Constraint.RelativeToParent ((Parent) => {
 					return alto;
 				}));
+			txtclave.Behaviors.Add (new MaxLengthValidator { MaxLength = 12 });
 
 			ytemp = ytemp + alto;
 			var txtclave2 = new ExtendedEntry () {
@@ -145,6 +153,8 @@ namespace PaZos
 				Constraint.RelativeToParent ((Parent) => {
 					return alto;
 				}));
+
+			txtclave2.Behaviors.Add (new MaxLengthValidator { MaxLength = 12 });
 
 			ytemp = ytemp + alto+10;
 			var txtedad = new Picker () {
@@ -260,13 +270,20 @@ namespace PaZos
 				}));
 
 			ytemp = ytemp + alto+10;
-			var button = new Button { Text = "Iniciar sesión",
+			var button = new Button { Text = "Registrar usuario",
 				BackgroundColor = Color.Gray,
 				TextColor = Color.White,
 				Font = Font.OfSize("TwCenMT-Condensed",22)
 			};
 			button.Clicked += (sender, e) => {
 
+
+
+				/*if (txtNombre.Text=="" || txtNombre.Text == null){
+
+					DisplayActionSheet("Resgistro sin completar","Cancelar","ok",null);
+					return;
+				}*/
 				Usuario Ruser = new Usuario();
 
 				Ruser.nombre = txtNombre.Text;
@@ -285,8 +302,8 @@ namespace PaZos
 
 				registrausuario(Ruser);
 
-				/*DisplayAlert("Cuenta creada", "Add processing login here", "OK");
-				ilm.ShowMainPage();*/
+				//DisplayAlert("Cuenta creada", "Add processing login here", "OK");
+				ilm.ShowLogin(txtUsuario.Text);
 			};
 			layout.Children.Add (button,
 				Constraint.Constant (50),

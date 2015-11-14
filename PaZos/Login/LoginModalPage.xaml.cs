@@ -8,10 +8,10 @@ namespace PaZos
 	public partial class LoginModalPage : CarouselPage
 	{
 		ContentPage login, create;
-		public LoginModalPage (ILoginManager ilm)
+		public LoginModalPage (ILoginManager ilm,string usuario)
 		{
 			
-			login = new Login (ilm);
+			login = new Login (ilm,usuario);
 			create = new Registro (ilm);
 			this.Children.Add (login);
 			this.Children.Add (create);
