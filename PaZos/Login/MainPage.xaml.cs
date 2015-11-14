@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace PaZos
 {
-	public partial class MainPage : MasterDetailPage
+	public partial class MainPage : MasterDetailPage 
 	{
 		public MainPage ()
 		{
@@ -13,7 +13,7 @@ namespace PaZos
 
 			//menupage.lbAcciones.Clicked += (sender, e) => NavigateTo (2);
 
-			Detail = new NavigationPage (new Metas (this));
+			Detail = new NavigationPage (new acciones (this));
 			//Detail = new NavigationPage (new acciones ());
 			Master = menupage;
 
@@ -33,6 +33,11 @@ namespace PaZos
 			IsPresented = false;
 		}
 
+
+		public void showMetas ()
+		{	
+			Detail = new NavigationPage (new PaZos.Metas (this));
+		}
 
 	}
 }

@@ -16,9 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="launch640x960.png" translatesAutoresizingMaskIntoConstraints="NO" id="23" autoresizesSubviews="NO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" misplaced="YES" image="launch640x960.png" translatesAutoresizingMaskIntoConstraints="NO" id="23" autoresizesSubviews="NO">
                                 <rect key="frame" x="90" y="0.0" width="403" height="600"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                </variation>
                             </imageView>
                         </subviews>
                         <constraints>
@@ -41,5 +44,11 @@
         <image name="menuicon.png" width="626" height="626"/>
         <image name="menuicon44.png" width="44" height="44"/>
         <image name="pazosicon.png" width="44" height="44"/>
+        <image name="Fonts/arial narrow bold.ttf" width="0" height="0"/>
+        <image name="Fonts/arial narrow.ttf" width="0" height="0"/>
+        <image name="Fonts/tcmm.ttf" width="0" height="0"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination" type="retina47"/>
+    </simulatedMetricsContainer>
 </document>

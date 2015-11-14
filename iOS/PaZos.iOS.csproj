@@ -127,6 +127,11 @@
     <BundleResource Include="menuicon.png" />
     <BundleResource Include="menuicon44.png" />
     <BundleResource Include="pazosicon.png" />
+    <BundleResource Include="Resources\Fonts\arial narrow bold.ttf" />
+    <BundleResource Include="Resources\Fonts\arial narrow.ttf" />
+    <BundleResource Include="Resources\Fonts\myriadpro-regular.otf" />
+    <BundleResource Include="Resources\Fonts\noteworthy.ttc" />
+    <BundleResource Include="Resources\Fonts\tcmm.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

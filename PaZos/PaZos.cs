@@ -21,8 +21,8 @@ namespace PaZos
 			if (isLoggedIn)
 				MainPage = new PaZos.MainPage ();
 			else
-				MainPage = new LoginModalPage (this);
-
+				//MainPage = new LoginModalPage (this);
+				MainPage = new inicio (this);
 
 			//MainPage = new NavigationPage(new PaZos.Inicio ());
 		}
@@ -32,10 +32,23 @@ namespace PaZos
 			MainPage = new PaZos.MainPage ();
 		}
 
+
+		public void ShowRegistro ()
+		{	
+			MainPage = new PaZos.RegistroModalPage (this);
+		}
+
+		public void ShowLogin ()
+		{	
+			MainPage = new PaZos.LoginModalPage (this);
+		}
+
+
 		public void Logout ()
 		{
 			Properties ["IsLoggedIn"] = false; // only gets set to 'true' on the LoginPage
-			MainPage = new LoginModalPage (this);
+			MainPage = new PaZos.LoginModalPage (this);
+			//((NavigationPage)master.Detail).PushAsync(new PaZos.LoginModalPage(this));
 		}
 
 		protected override void OnStart ()

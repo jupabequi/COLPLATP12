@@ -24,7 +24,7 @@ namespace PaZos
 
 		public async Task<List<Usuario>> get ()
 		{			
-			var uri = new Uri (string.Format (ServiceUrl + "/get?wsdl", string.Empty));
+			var uri = new Uri (string.Format (ServiceUrl + "?action=1", string.Empty));
 
 			try 
 			{
@@ -43,13 +43,15 @@ namespace PaZos
 
 		public async Task<bool> insert(Usuario user)
 		{
-			var uri = new Uri (string.Format (ServiceUrl + "/insert", user.id));
+			
+
 
 			try 
 			{
 				var json = JsonConvert.SerializeObject (user);
 				var content = new StringContent (json, Encoding.UTF8, "application/json");
 
+				var uri = new Uri (string.Format (ServiceUrl + "?action=2&usuario={0}", json));
 				var response = await client.PostAsync (uri, content);
 				if (response.IsSuccessStatusCode) {
 					return true;

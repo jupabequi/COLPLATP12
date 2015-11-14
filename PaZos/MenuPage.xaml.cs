@@ -14,6 +14,7 @@ namespace PaZos
 
 
 		MasterDetailPage master;
+		IMasterManager iMM;
 
 		TableView tableView;
 
@@ -293,7 +294,10 @@ namespace PaZos
 			switch (option) {
 
 			case 1:
-				((NavigationPage)master.Detail).PushAsync(new Metas(master));
+
+				iMM.ShowMetas ();
+
+				//((NavigationPage)master.Detail).PushAsync(new Metas(master));
 				/*master.Detail = metas ??
 					(metas = new NavigationPage (
 					new Metas (master)

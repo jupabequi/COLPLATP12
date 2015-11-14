@@ -103,6 +103,15 @@
     <Compile Include="FinalInformate.xaml.cs">
       <DependentUpon>FinalInformate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Login\inicio.xaml.cs">
+      <DependentUpon>inicio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login\RegistroModalPage.xaml.cs">
+      <DependentUpon>RegistroModalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\IMasterManager.cs" />
+    <Compile Include="Code\Data\Services\RestPaises.cs" />
+    <Compile Include="Code\Data\Entities\Paises.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -197,6 +206,13 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="FinalInformate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\inicio.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\inicio.png" />
+    <EmbeddedResource Include="Login\RegistroModalPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

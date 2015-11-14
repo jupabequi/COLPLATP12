@@ -179,14 +179,14 @@ namespace PaZos
 
 
 
-			/*ScrollView scrollview = new ScrollView {
+			ScrollView scrollview = new ScrollView {
 								
 				Content = abslayout
 
-			};*/
+			};
 
-			Content = abslayout;
-			//Content = scrollview;
+			//Content = abslayout;
+			Content = scrollview;
 			/*Content = new StackLayout {
 				Padding = new Thickness (10, 40, 10, 10),
 				Children = {

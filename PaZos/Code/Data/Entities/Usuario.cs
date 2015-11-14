@@ -4,7 +4,7 @@ namespace PaZos
 {
 	public class Usuario
 	{
-		public int id;
+		public int Id;
 		public string nombre;
 		public string apellidos;
 		public string correo;
