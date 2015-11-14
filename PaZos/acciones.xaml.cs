@@ -15,6 +15,7 @@ namespace PaZos
 		public acciones (MasterDetailPage masterDetail)
 		{
 
+			ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
 			this.Title = "Acciones ahorradoras";
 
 			master = masterDetail;

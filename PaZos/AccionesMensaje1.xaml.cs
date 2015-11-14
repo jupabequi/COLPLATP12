@@ -7,9 +7,36 @@ namespace PaZos
 {
 	public partial class AccionesMensaje1 : ContentPage
 	{
-		public AccionesMensaje1 ()
+		MasterDetailPage master;
+
+		public AccionesMensaje1 (MasterDetailPage masterDetail)
 		{
-			InitializeComponent ();
+			ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
+			this.Title = "Acciones ahorradoras";
+
+			master = masterDetail;
+
+			RelativeLayout layout = new RelativeLayout ();
+
+			//Colocar background
+			var imgBackground = new Image () {
+				Source = ImageSource.FromResource ("PaZos.Resources.FondoAcciones.png"),
+				Aspect = Aspect.AspectFill
+			};
+
+			layout.Children.Add (imgBackground,
+				Constraint.Constant (0),
+				Constraint.Constant (0),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Height;
+				}));
+			//Fin Colocar background 
+
+
+			Content = layout;
 		}
 	}
 }
