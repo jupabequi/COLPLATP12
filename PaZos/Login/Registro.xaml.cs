@@ -47,8 +47,10 @@ namespace PaZos
 				BackgroundColor = Color.White,
 				Font = Font.OfSize("TwCenMT-Condensed",22),
 				HasBorder=true
-
 			};
+
+			txtNombre.Behaviors.Add (new MaxLengthValidator { MaxLength = 2 });
+
 			layout.Children.Add (txtNombre,
 				Constraint.Constant (50),
 				Constraint.Constant (ytemp),
