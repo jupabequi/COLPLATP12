@@ -5,6 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
+
 namespace PaZos.iOS
 {
 
@@ -27,6 +28,11 @@ namespace PaZos.iOS
 			UINavigationBar.Appearance.SetTitleTextAttributes ( new UITextAttributes { TextColor = UIColor.White,
 				Font = UIFont.FromName("MyriadPro-Bold",24)
 			});
+			UINavigationBar.Appearance.TintColor = UIColor.White;
+
+		
+
+			UINavigationBar.Appearance.SetBackgroundImage (UIImage.FromResource(null, "PaZos.iOS.Resources.menuicon.png"), UIBarMetrics.Default);
 
 			return base.FinishedLaunching (app, options);
 		}

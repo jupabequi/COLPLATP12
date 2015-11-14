@@ -329,12 +329,14 @@ namespace PaZos
 		public void Selected(int dia)
 		{
 
-			NPdias = new NavigationPage (
+
+			((NavigationPage)master.Detail).PushAsync(new PaZos.evaluacionDia(master, dia));
+			/*NPdias = new NavigationPage (
 				new evaluacionDia (master, dia)
 			);
 
 			master.Detail = NPdias;
-
+			*/
 		}
 	}
 }

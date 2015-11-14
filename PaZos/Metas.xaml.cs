@@ -13,7 +13,7 @@ namespace PaZos
 
 		public Metas (MasterDetailPage masterDetail)
 		{
-
+			ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
 			this.Title = "Metas";
 
 			//this.Icon =  "Resources/menuicon.png";
@@ -195,10 +195,20 @@ namespace PaZos
 				}));
 
 
+
+
+		
+
+
+
+
 			ExtendedDatePicker dtinicio = new ExtendedDatePicker () {
 				VerticalOptions = LayoutOptions.Center,
-				Format = "dd/MM/yyyy"
+				Format = "dd/MM/yyyy",
+
 			};
+
+
 			layout.Children.Add (dtinicio,
 				Constraint.RelativeToParent ((Parent) => {
 					return (Parent.Width-40)/2+5+20;

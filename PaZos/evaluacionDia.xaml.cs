@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using XLabs.Forms.Controls;
 
 namespace PaZos
 {
@@ -63,11 +64,11 @@ namespace PaZos
 
 			};
 
-
+			int y = 15;
 
 			layout.Children.Add (imgDias,
 				Constraint.Constant (15),
-				Constraint.Constant (15),
+				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
 					return 250;
 				}),
@@ -87,7 +88,7 @@ namespace PaZos
 
 			layout.Children.Add (lbdia,
 				Constraint.Constant (15),
-				Constraint.Constant (15),
+				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
 					return 250;
 				}),
@@ -97,6 +98,97 @@ namespace PaZos
 
 
 			//End Dias
+
+			ExtendedEntry txtaccion, txtvalor;
+			Label lbvalor;
+
+			int i, j = 3;
+			y = 52 + y + 10;
+
+			for (i = 1; i < j; i++) {
+				txtaccion = new ExtendedEntry () {
+					Placeholder = "Acción " + i.ToString()
+				};
+				layout.Children.Add (txtaccion,
+					Constraint.Constant (20),
+					Constraint.Constant (y+90*(i-1)),
+					Constraint.RelativeToParent ((Parent) => {
+						return Parent.Width - 40;
+					}),
+					Constraint.RelativeToParent ((Parent) => {
+						return 40;
+					}));	
+
+				lbvalor = new Label (){
+					Text = "Valor",
+					FontSize=22,
+					FontFamily =  "MyriadPro-Regular"
+				};
+				layout.Children.Add (lbvalor,
+					Constraint.RelativeToParent ((Parent) => {
+						return Parent.Width - 20 - 150 - 60;
+					}),
+					Constraint.Constant (y+55+90*(i-1)),
+					Constraint.RelativeToParent ((Parent) => {
+						return 100;
+					}),
+					Constraint.RelativeToParent ((Parent) => {
+						return 40;
+					}));	
+
+				txtvalor = new ExtendedEntry () {
+
+				};
+				layout.Children.Add (txtvalor,
+					Constraint.RelativeToParent ((Parent) => {
+						return Parent.Width - 20 - 150;
+					}),
+					Constraint.Constant (y+45+90*(i-1)),
+					Constraint.RelativeToParent ((Parent) => {
+						return 150;
+					}),
+					Constraint.RelativeToParent ((Parent) => {
+						return 40;
+					}));	
+
+
+			}
+
+			y = y + 90 * (i-1);
+
+			lbvalor = new Label (){
+				Text = "Valor total",
+				FontSize=22,
+				FontFamily =  "MyriadPro-Regular"
+			};
+			layout.Children.Add (lbvalor,
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width - 20 - 200 - 110;
+				}),
+				Constraint.Constant (y+5),
+				Constraint.RelativeToParent ((Parent) => {
+					return 110;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 40;
+				}));
+
+			ExtendedEntry txttotal = new ExtendedEntry () {
+
+			};
+			layout.Children.Add (txttotal,
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width - 20 - 200;
+				}),
+				Constraint.Constant (y),
+				Constraint.RelativeToParent ((Parent) => {
+					return 200;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 40;
+				}));	
+			
+
 
 			Content = layout;
 		}

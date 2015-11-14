@@ -79,6 +79,30 @@
     <Compile Include="Code\Constants.cs" />
     <Compile Include="Code\Data\Services\RestUsuarios.cs" />
     <Compile Include="Code\Data\Entities\Usuario.cs" />
+    <Compile Include="AccionesMensaje1.xaml.cs">
+      <DependentUpon>AccionesMensaje1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AccionesMensaje2.xaml.cs">
+      <DependentUpon>AccionesMensaje2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cumplio.xaml.cs">
+      <DependentUpon>Cumplio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Felicitaciones.xaml.cs">
+      <DependentUpon>Felicitaciones.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Animo.xaml.cs">
+      <DependentUpon>Animo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Preguntas.xaml.cs">
+      <DependentUpon>Preguntas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FelicitacionesFinal.xaml.cs">
+      <DependentUpon>FelicitacionesFinal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FinalInformate.xaml.cs">
+      <DependentUpon>FinalInformate.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -139,7 +163,6 @@
     <EmbeddedResource Include="evaluacionDia.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\menuicon.png" />
     <EmbeddedResource Include="Resources\login.png" />
     <EmbeddedResource Include="Resources\FondoLogin.png" />
     <EmbeddedResource Include="Resources\personajelogin.png" />
@@ -151,6 +174,31 @@
     <EmbeddedResource Include="Resources\Metas\btmeta2.png" />
     <EmbeddedResource Include="Resources\Metas\btnmeta1.png" />
     <EmbeddedResource Include="Resources\Metas\btnmeta3.png" />
+    <EmbeddedResource Include="Resources\menuicon.png" />
+    <EmbeddedResource Include="AccionesMensaje1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccionesMensaje2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cumplio.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Felicitaciones.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Animo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Preguntas.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FelicitacionesFinal.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalInformate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -205,6 +253,7 @@
     <None Include="Resources\Fonts\myriadpro-bold.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="menuicon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Code\" />

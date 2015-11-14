@@ -29,7 +29,7 @@ namespace PaZos
 		public MenuPage (MasterDetailPage masterDetail)
 		{
 			
-	
+
 	
 			Title = "-";
 			//Icon = "slideout.png";
