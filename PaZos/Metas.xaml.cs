@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using XLabs.Forms.Controls;
 
+
 namespace PaZos
 {
 	public partial class Metas : ContentPage
@@ -11,9 +12,51 @@ namespace PaZos
 		MasterDetailPage master;
 		private NavigationPage NPdias;
 
-		public Metas (MasterDetailPage masterDetail)
+		List<eMetas> ListaMeta;
+		Usuario usuario;
+
+		int Id;
+		AsisprinPicker pkTipoMeta;
+		Entry entmeta;
+		ExtendedEntry entvalor;
+		AsisprinDatePicker dtinicio;
+		DatePicker dtfinal;
+		Picker pkTipoAhorro;
+
+		int Id2;
+		Picker pkTipoMeta2;
+		Entry entmeta2;
+		ExtendedEntry entvalor2;
+		ExtendedDatePicker dtinicio2;
+		DatePicker dtfinal2;
+		Picker pkTipoAhorro2;
+
+		int Id3;
+		Picker pkTipoMeta3;
+		Entry entmeta3;
+		ExtendedEntry entvalor3;
+		ExtendedDatePicker dtinicio3;
+		DatePicker dtfinal3;
+		Picker pkTipoAhorro3;
+
+
+
+
+		public Metas (MasterDetailPage masterDetail, Usuario tusuario)
 		{
-			ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
+
+			usuario = tusuario;
+
+			var guardaritem = new ToolbarItem {
+				Text = "Guardar"
+			};
+			guardaritem.Clicked += (object sender, System.EventArgs e) => 
+			{
+				guardarMetas();
+			};
+
+			//ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
+			ToolbarItems.Add(guardaritem);
 			this.Title = "Metas";
 
 			//this.Icon =  "Resources/menuicon.png";
@@ -116,6 +159,41 @@ namespace PaZos
 
 			int y = 80;
 
+			int y2 = y;
+
+
+
+			y = y - 7;
+			pkTipoMeta = new AsisprinPicker () {
+				Title = "Tipo de meta"
+			};
+			layout.Children.Add (pkTipoMeta,
+				Constraint.Constant (199),
+				Constraint.Constant (y+22),
+				Constraint.RelativeToParent ((Parent) => {
+					return ParentView.Width-199-20;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 30;
+				}));	
+
+				
+
+			y = y + 52 + 3;
+			entmeta = new ExtendedEntry () {
+				Placeholder = "Escribe tu meta",
+				Font = Font.OfSize("TwCenMT-Condensed",26)
+			};
+			layout.Children.Add (entmeta,
+				Constraint.Constant (20),
+				Constraint.Constant (y),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width-40;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 40;
+				}));	
+
 			Image imgMeta1 = new Image () {
 				Aspect = Aspect.AspectFill,
 				Source = ImageSource.FromResource ("PaZos.Resources.Metas.btnmeta1.png")
@@ -123,7 +201,7 @@ namespace PaZos
 			};
 			layout.Children.Add (imgMeta1,
 				Constraint.Constant (20),
-				Constraint.Constant (y),
+				Constraint.Constant (y2),
 				Constraint.RelativeToParent ((Parent) => {
 					return 175;
 				}),
@@ -141,7 +219,7 @@ namespace PaZos
 			};
 			layout.Children.Add (lbMeta1,
 				Constraint.Constant (70),
-				Constraint.Constant (y+13),
+				Constraint.Constant (y2+13),
 				Constraint.RelativeToParent ((Parent) => {
 					return 175;
 				}),
@@ -149,41 +227,20 @@ namespace PaZos
 					return 52;
 				}));
 
-
-			Picker pkTipoMeta = new Picker () {
-				Title = "Tipo de meta"
-			};
-			layout.Children.Add (pkTipoMeta,
-				Constraint.Constant (199),
-				Constraint.Constant (y+22),
-				Constraint.RelativeToParent ((Parent) => {
-					return ParentView.Width-199-20;
-				}),
-				Constraint.RelativeToParent ((Parent) => {
-					return 30;
-				}));	
-
-				
-
-			y = y + 52 + 3;
-			Entry entmeta = new ExtendedEntry () {
-				Placeholder = "Escribe tu meta"
-			};
-			layout.Children.Add (entmeta,
-				Constraint.Constant (20),
-				Constraint.Constant (y),
-				Constraint.RelativeToParent ((Parent) => {
-					return Parent.Width-40;
-				}),
-				Constraint.RelativeToParent ((Parent) => {
-					return 40;
-				}));	
-
-
 			y = y + 40 + 2;
-			var entvalor = new ExtendedEntry() {
-				Placeholder = "$"
+			entvalor = new ExtendedEntry() {
+				Placeholder = "$",
+				Font = Font.OfSize("TwCenMT-Condensed",28),
+				XAlign= TextAlignment.End
+
 			};
+			entvalor.Unfocused += (object sender, FocusEventArgs e) => {
+				if(Convert.ToDouble(entvalor.Text)>100000){
+					enviamensaje();
+				}
+			};
+			entvalor.Behaviors.Add (new NumberValidatorBehavior ());
+
 			layout.Children.Add (entvalor,
 				Constraint.Constant (20),
 				Constraint.Constant (y),
@@ -191,18 +248,33 @@ namespace PaZos
 					return (Parent.Width-40)/2;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 30;
+					return 40;
 				}));
 
 
 
-
+			Label lbinicia = new Label () {
+				Text = "Inicia",
+				FontSize = 14,
+				FontFamily = "TwCenMT-Condensed",
+			};
+			layout.Children.Add (lbinicia,
+				Constraint.RelativeToParent ((Parent) => {
+					return (Parent.Width-40)/2+5+20;
+				}),
+				Constraint.Constant (y),
+				Constraint.RelativeToParent ((Parent) => {
+					return (Parent.Width-40)/4-5;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 10;
+				}));
 		
 
 
 
 
-			ExtendedDatePicker dtinicio = new ExtendedDatePicker () {
+			dtinicio = new AsisprinDatePicker () {
 				VerticalOptions = LayoutOptions.Center,
 				Format = "dd/MM/yyyy",
 
@@ -213,7 +285,7 @@ namespace PaZos
 				Constraint.RelativeToParent ((Parent) => {
 					return (Parent.Width-40)/2+5+20;
 				}),
-				Constraint.Constant (y),
+				Constraint.Constant (y+10),
 				Constraint.RelativeToParent ((Parent) => {
 					return (Parent.Width-40)/4-5;
 				}),
@@ -221,11 +293,12 @@ namespace PaZos
 					return 30;
 				}));	
 
-			DatePicker dtfinal = new DatePicker () {
-				VerticalOptions = LayoutOptions.Center,
-				Format = "dd/MM/yyyy"
+			Label lbTermina = new Label () {
+				Text = "Termina",
+				FontSize = 14,
+				FontFamily = "TwCenMT-Condensed",
 			};
-			layout.Children.Add (dtfinal,
+			layout.Children.Add (lbTermina,
 				Constraint.RelativeToParent ((Parent) => {
 					return (Parent.Width-40)/4*3+5+20;
 				}),
@@ -234,11 +307,27 @@ namespace PaZos
 					return (Parent.Width-40)/4-5;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
+					return 10;
+				}));
+
+			dtfinal = new AsisprinDatePicker () {
+				VerticalOptions = LayoutOptions.Center,
+				Format = "dd/MM/yyyy"
+			};
+			layout.Children.Add (dtfinal,
+				Constraint.RelativeToParent ((Parent) => {
+					return (Parent.Width-40)/4*3+5+20;
+				}),
+				Constraint.Constant (y+10),
+				Constraint.RelativeToParent ((Parent) => {
+					return (Parent.Width-40)/4-5;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
 					return 30;
 				}));
 
-			y = y + 30 + 2;
-			Picker pkTipoAhorro = new Picker () {
+			y = y + 40 + 2;
+			pkTipoAhorro = new AsisprinPicker () {
 				Title = "Tipo de ahorro"
 			};
 
@@ -277,6 +366,66 @@ namespace PaZos
 
 
 			y = y + 30 + 10;
+
+			y2 = y;
+
+			y = y - 7;
+			pkTipoMeta2 = new AsisprinPicker () {
+				Title = "Tipo de meta"
+			};
+			layout.Children.Add (pkTipoMeta2,
+				Constraint.Constant (199),
+				Constraint.Constant (y+22),
+				Constraint.RelativeToParent ((Parent) => {
+					return ParentView.Width-199-20;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 30;
+				}));	
+
+
+
+			y = y + 52 + 3;
+			entmeta2 = new ExtendedEntry () {
+				Placeholder = "Escribe tu meta",
+				Font = Font.OfSize("TwCenMT-Condensed",26)
+			};
+			layout.Children.Add (entmeta2,
+				Constraint.Constant (20),
+				Constraint.Constant (y),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width-40;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 40;
+				}));	
+			
+
+
+
+			y = y + 40 + 2;
+			entvalor2 = new ExtendedEntry() {
+				Placeholder = "$",
+				Font = Font.OfSize("TwCenMT-Condensed",28),
+				XAlign= TextAlignment.End
+			};
+			entvalor2.Behaviors.Add (new NumberValidatorBehavior ());
+			layout.Children.Add (entvalor2,
+				Constraint.Constant (20),
+				Constraint.Constant (y),
+				Constraint.RelativeToParent ((Parent) => {
+					return (Parent.Width-40)/2;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 40;
+				}));
+			entvalor2.Unfocused += (object sender, FocusEventArgs e) => {
+				if(Convert.ToDouble(entvalor2.Text)>100000){
+					enviamensaje();
+				}
+			};
+
+
 			Image imgMeta2 = new Image () {
 				Aspect = Aspect.AspectFill,
 				Source=  ImageSource.FromResource ("PaZos.Resources.Metas.btmeta2.png")
@@ -284,7 +433,7 @@ namespace PaZos
 			};
 			layout.Children.Add (imgMeta2,
 				Constraint.Constant (20),
-				Constraint.Constant (y),
+				Constraint.Constant (y2),
 				Constraint.RelativeToParent ((Parent) => {
 					return 175;
 				}),
@@ -302,7 +451,7 @@ namespace PaZos
 			};
 			layout.Children.Add (lbMeta2,
 				Constraint.Constant (70),
-				Constraint.Constant (y+13),
+				Constraint.Constant (y2+13),
 				Constraint.RelativeToParent ((Parent) => {
 					return 175;
 				}),
@@ -310,57 +459,12 @@ namespace PaZos
 					return 52;
 				}));
 
-
-			Picker pkTipoMeta2 = new Picker () {
-				Title = "Tipo de meta"
+			Label lbinicia2 = new Label () {
+				Text = "Inicia",
+				FontSize = 14,
+				FontFamily = "TwCenMT-Condensed",
 			};
-			layout.Children.Add (pkTipoMeta2,
-				Constraint.Constant (199),
-				Constraint.Constant (y+22),
-				Constraint.RelativeToParent ((Parent) => {
-					return ParentView.Width-199-20;
-				}),
-				Constraint.RelativeToParent ((Parent) => {
-					return 30;
-				}));	
-
-
-
-			y = y + 52 + 3;
-			Entry entmeta2 = new ExtendedEntry () {
-				Placeholder = "Escribe tu meta"
-			};
-			layout.Children.Add (entmeta2,
-				Constraint.Constant (20),
-				Constraint.Constant (y),
-				Constraint.RelativeToParent ((Parent) => {
-					return Parent.Width-40;
-				}),
-				Constraint.RelativeToParent ((Parent) => {
-					return 40;
-				}));	
-
-
-			y = y + 40 + 2;
-			var entvalor2 = new ExtendedEntry() {
-				Placeholder = "$"
-			};
-			layout.Children.Add (entvalor2,
-				Constraint.Constant (20),
-				Constraint.Constant (y),
-				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2;
-				}),
-				Constraint.RelativeToParent ((Parent) => {
-					return 30;
-				}));
-
-
-			ExtendedDatePicker dtinicio2 = new ExtendedDatePicker () {
-				VerticalOptions = LayoutOptions.Center,
-				Format = "dd/MM/yyyy"
-			};
-			layout.Children.Add (dtinicio2,
+			layout.Children.Add (lbinicia2,
 				Constraint.RelativeToParent ((Parent) => {
 					return (Parent.Width-40)/2+5+20;
 				}),
@@ -369,14 +473,32 @@ namespace PaZos
 					return (Parent.Width-40)/4-5;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 30;
-				}));	
-
-			DatePicker dtfinal2 = new DatePicker () {
+					return 10;
+				}));
+			
+			dtinicio2 = new AsisprinDatePicker () {
 				VerticalOptions = LayoutOptions.Center,
 				Format = "dd/MM/yyyy"
 			};
-			layout.Children.Add (dtfinal2,
+			layout.Children.Add (dtinicio2,
+				Constraint.RelativeToParent ((Parent) => {
+					return (Parent.Width-40)/2+5+20;
+				}),
+				Constraint.Constant (y+10),
+				Constraint.RelativeToParent ((Parent) => {
+					return (Parent.Width-40)/4-5;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 30;
+				}));	
+
+
+			Label lbTermina2 = new Label () {
+				Text = "Termina",
+				FontSize = 14,
+				FontFamily = "TwCenMT-Condensed",
+			};
+			layout.Children.Add (lbTermina2,
 				Constraint.RelativeToParent ((Parent) => {
 					return (Parent.Width-40)/4*3+5+20;
 				}),
@@ -385,11 +507,28 @@ namespace PaZos
 					return (Parent.Width-40)/4-5;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
+					return 10;
+				}));
+
+			dtfinal2 = new AsisprinDatePicker () {
+				VerticalOptions = LayoutOptions.Center,
+				Format = "dd/MM/yyyy"
+			};
+			layout.Children.Add (dtfinal2,
+				Constraint.RelativeToParent ((Parent) => {
+					return (Parent.Width-40)/4*3+5+20;
+				}),
+				Constraint.Constant (y+10),
+				Constraint.RelativeToParent ((Parent) => {
+					return (Parent.Width-40)/4-5;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
 					return 30;
 				}));
 
-			y = y + 30 + 2;
-			Picker pkTipoAhorro2 = new Picker () {
+
+			y = y + 40 + 2;
+			pkTipoAhorro2 = new AsisprinPicker () {
 				Title = "Tipo de ahorro"
 			};
 
@@ -407,6 +546,42 @@ namespace PaZos
 
 
 			y = y + 30+10;
+			y2 = y;
+			y = y - 7;
+
+
+
+			pkTipoMeta3 = new AsisprinPicker () {
+				Title = "Tipo de meta"
+
+			};
+			layout.Children.Add (pkTipoMeta3,
+				Constraint.Constant (199),
+				Constraint.Constant (y+22),
+				Constraint.RelativeToParent ((Parent) => {
+					return ParentView.Width-199-20;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 30;
+				}));	
+
+
+
+			y = y + 52 + 3;
+			entmeta3 = new ExtendedEntry () {
+				Placeholder = "Escribe tu meta",
+				Font = Font.OfSize("TwCenMT-Condensed",26)
+			};
+			layout.Children.Add (entmeta3,
+				Constraint.Constant (20),
+				Constraint.Constant (y),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width-40;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 40;
+				}));	
+
 			Image imgMeta3 = new Image () {
 				Aspect = Aspect.AspectFill,
 				Source=  ImageSource.FromResource ("PaZos.Resources.Metas.btnmeta3.png")
@@ -414,7 +589,7 @@ namespace PaZos
 			};
 			layout.Children.Add (imgMeta3,
 				Constraint.Constant (20),
-				Constraint.Constant (y),
+				Constraint.Constant (y2),
 				Constraint.RelativeToParent ((Parent) => {
 					return 175;
 				}),
@@ -433,7 +608,7 @@ namespace PaZos
 			};
 			layout.Children.Add (lbMeta3,
 				Constraint.Constant (70),
-				Constraint.Constant (y+13),
+				Constraint.Constant (y2+13),
 				Constraint.RelativeToParent ((Parent) => {
 					return 175;
 				}),
@@ -442,40 +617,13 @@ namespace PaZos
 				}));
 
 
-			Picker pkTipoMeta3 = new Picker () {
-				Title = "Tipo de meta"
-			};
-			layout.Children.Add (pkTipoMeta3,
-				Constraint.Constant (199),
-				Constraint.Constant (y+22),
-				Constraint.RelativeToParent ((Parent) => {
-					return ParentView.Width-199-20;
-				}),
-				Constraint.RelativeToParent ((Parent) => {
-					return 30;
-				}));	
-
-
-
-			y = y + 52 + 3;
-			Entry entmeta3 = new ExtendedEntry () {
-				Placeholder = "Escribe tu meta"
-			};
-			layout.Children.Add (entmeta3,
-				Constraint.Constant (20),
-				Constraint.Constant (y),
-				Constraint.RelativeToParent ((Parent) => {
-					return Parent.Width-40;
-				}),
-				Constraint.RelativeToParent ((Parent) => {
-					return 40;
-				}));	
-
-
 			y = y + 40 + 2;
-			var entvalor3 = new ExtendedEntry() {
-				Placeholder = "$"
+			entvalor3 = new ExtendedEntry() {
+				Placeholder = "$",
+				Font = Font.OfSize("TwCenMT-Condensed",28),
+				XAlign= TextAlignment.End
 			};
+			entvalor3.Behaviors.Add (new NumberValidatorBehavior ());
 			layout.Children.Add (entvalor3,
 				Constraint.Constant (20),
 				Constraint.Constant (y),
@@ -483,15 +631,21 @@ namespace PaZos
 					return (Parent.Width-40)/2;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 30;
+					return 40;
 				}));
-
-
-			ExtendedDatePicker dtinicio3 = new ExtendedDatePicker () {
-				VerticalOptions = LayoutOptions.Center,
-				Format = "dd/MM/yyyy"
+			entvalor3.Unfocused += (object sender, FocusEventArgs e) => {
+				if(Convert.ToDouble(entvalor3.Text)>100000){
+					enviamensaje();
+				}
 			};
-			layout.Children.Add (dtinicio3,
+
+
+			Label lbinicia3 = new Label () {
+				Text = "Inicia",
+				FontSize = 14,
+				FontFamily = "TwCenMT-Condensed",
+			};
+			layout.Children.Add (lbinicia3,
 				Constraint.RelativeToParent ((Parent) => {
 					return (Parent.Width-40)/2+5+20;
 				}),
@@ -500,14 +654,30 @@ namespace PaZos
 					return (Parent.Width-40)/4-5;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 30;
-				}));	
-
-			DatePicker dtfinal3 = new DatePicker () {
+					return 10;
+				}));
+			dtinicio3 = new AsisprinDatePicker () {
 				VerticalOptions = LayoutOptions.Center,
 				Format = "dd/MM/yyyy"
 			};
-			layout.Children.Add (dtfinal3,
+			layout.Children.Add (dtinicio3,
+				Constraint.RelativeToParent ((Parent) => {
+					return (Parent.Width-40)/2+5+20;
+				}),
+				Constraint.Constant (y+10),
+				Constraint.RelativeToParent ((Parent) => {
+					return (Parent.Width-40)/4-5;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 30;
+				}));	
+
+			Label lbTermina3 = new Label () {
+				Text = "Termina",
+				FontSize = 14,
+				FontFamily = "TwCenMT-Condensed",
+			};
+			layout.Children.Add (lbTermina3,
 				Constraint.RelativeToParent ((Parent) => {
 					return (Parent.Width-40)/4*3+5+20;
 				}),
@@ -516,11 +686,26 @@ namespace PaZos
 					return (Parent.Width-40)/4-5;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
+					return 10;
+				}));
+			dtfinal3 = new AsisprinDatePicker () {
+				VerticalOptions = LayoutOptions.Center,
+				Format = "dd/MM/yyyy"
+			};
+			layout.Children.Add (dtfinal3,
+				Constraint.RelativeToParent ((Parent) => {
+					return (Parent.Width-40)/4*3+5+20;
+				}),
+				Constraint.Constant (y+10),
+				Constraint.RelativeToParent ((Parent) => {
+					return (Parent.Width-40)/4-5;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
 					return 30;
 				}));
 
-			y = y + 30 + 2;
-			Picker pkTipoAhorro3 = new Picker () {
+			y = y + 40 + 2;
+			pkTipoAhorro3 = new AsisprinPicker () {
 				Title = "Tipo de ahorro"
 			};
 
@@ -536,7 +721,18 @@ namespace PaZos
 			
 			
 		
-
+			Label lbespacio = new Label () {
+				Text = " "
+			};
+			layout.Children.Add (lbespacio,
+					Constraint.Constant (20),
+					Constraint.Constant (y+30),
+					Constraint.RelativeToParent ((Parent) => {
+						return 150;
+					}),
+					Constraint.RelativeToParent ((Parent) => {
+						return 10;
+					}));
 	
 
 			foreach (string tipoMeta in tiposMetas.Keys) {
@@ -567,11 +763,132 @@ namespace PaZos
 
 			Content = scrollview;
 
+			cargarMetas ();
+
 		}
 
 		private void cargarImagenes(){
 			//imgMeta1.Source = ImageSource.FromResource ("PaZos.Resources.meta1.png");
 			// = ImageSource.FromResource ("PaZos.Resources.fondapp.png");
+		}
+
+		public async void guardarMetas(){
+
+
+			eMetas Lmeta = new eMetas ();
+			eMetas Lmeta2 = new eMetas ();
+			eMetas Lmeta3 = new eMetas ();
+
+			Lmeta.Id = Id;
+			Lmeta.tipo = pkTipoMeta.SelectedIndex;
+			Lmeta.meta = entmeta.Text;
+			Lmeta.valor = Convert.ToDouble(entvalor.Text);
+			Lmeta.fechainicio = dtinicio.Date;
+			Lmeta.fechaFinal = dtfinal.Date;
+			Lmeta.tipoAhorro = pkTipoAhorro.SelectedIndex;
+
+			Lmeta2.Id = Id2;
+			Lmeta2.tipo = pkTipoMeta2.SelectedIndex;
+			Lmeta2.meta = entmeta2.Text;
+			Lmeta2.valor = Convert.ToDouble(entvalor2.Text);
+			Lmeta2.fechainicio = dtinicio2.Date;
+			Lmeta2.fechaFinal = dtfinal2.Date;
+			Lmeta2.tipoAhorro = pkTipoAhorro2.SelectedIndex;
+
+			Lmeta3.Id = Id3;
+			Lmeta3.tipo = pkTipoMeta3.SelectedIndex;
+			Lmeta3.meta = entmeta3.Text;
+			Lmeta3.valor = Convert.ToDouble(entvalor3.Text);
+			Lmeta3.fechainicio = dtinicio3.Date;
+			Lmeta3.fechaFinal = dtfinal3.Date;
+			Lmeta3.tipoAhorro = pkTipoAhorro3.SelectedIndex;
+
+			var resultado = await new RestMetas().actualizar (Lmeta);
+			var resultado2 = await new RestMetas().actualizar (Lmeta2);
+			var resultado3 = await new RestMetas().actualizar (Lmeta3);
+
+			DisplayAlert("Metas", "Metas actualizadas", "OK");
+			//var respuesta = await new RestUsuarios().insert(RUSER);
+
+		}
+
+		public async void cargarMetas(){
+
+			ListaMeta = await new RestMetas ().get (usuario);
+
+
+			Id = ListaMeta [0].Id;
+			pkTipoMeta.SelectedIndex = ListaMeta[0].tipo;
+			entmeta.Text=ListaMeta[0].meta;
+			entvalor.Text=Convert.ToString(ListaMeta[0].valor);
+			dtinicio.Date= Convert.ToDateTime(ListaMeta[0].fechainicio);
+			dtfinal.Date=Convert.ToDateTime(ListaMeta[0].fechaFinal);
+			pkTipoAhorro.SelectedIndex=ListaMeta[0].tipoAhorro;
+
+			Id2 = ListaMeta [1].Id;
+			pkTipoMeta2.SelectedIndex = ListaMeta[1].tipo;
+			entmeta2.Text=ListaMeta[1].meta;
+			entvalor2.Text=Convert.ToString(ListaMeta[1].valor);
+			dtinicio2.Date=Convert.ToDateTime(ListaMeta[1].fechainicio);
+			dtfinal2.Date=Convert.ToDateTime(ListaMeta[1].fechaFinal);
+			pkTipoAhorro2.SelectedIndex=ListaMeta[1].tipoAhorro;
+
+			Id3 = ListaMeta [2].Id;
+			pkTipoMeta3.SelectedIndex = ListaMeta[2].tipo;
+			entmeta3.Text=ListaMeta[2].meta;
+			entvalor3.Text=Convert.ToString(ListaMeta[2].valor);
+			dtinicio3.Date=Convert.ToDateTime(ListaMeta[2].fechainicio);
+			dtfinal3.Date=Convert.ToDateTime(ListaMeta[2].fechaFinal);
+			pkTipoAhorro3.SelectedIndex=ListaMeta[2].tipoAhorro;
+
+		}
+
+		protected async override void OnAppearing ()
+		{
+			base.OnAppearing ();
+
+			 
+			/*
+			ListaMeta = await new RestMetas ().get (usuario);
+
+
+			Id = ListaMeta [0].Id;
+			pkTipoMeta.SelectedIndex = ListaMeta[0].tipo;
+			entmeta.Text=ListaMeta[0].meta;
+			entvalor.Text=Convert.ToString(ListaMeta[0].valor);
+			dtinicio.Date= Convert.ToDateTime(ListaMeta[0].fechainicio);
+			dtfinal.Date=Convert.ToDateTime(ListaMeta[0].fechaFinal);
+			pkTipoAhorro.SelectedIndex=ListaMeta[0].tipoAhorro;
+
+			Id2 = ListaMeta [1].Id;
+			pkTipoMeta2.SelectedIndex = ListaMeta[1].tipo;
+			entmeta2.Text=ListaMeta[1].meta;
+			entvalor2.Text=Convert.ToString(ListaMeta[1].valor);
+			dtinicio2.Date=Convert.ToDateTime(ListaMeta[1].fechainicio);
+			dtfinal2.Date=Convert.ToDateTime(ListaMeta[1].fechaFinal);
+			pkTipoAhorro2.SelectedIndex=ListaMeta[1].tipoAhorro;
+
+			Id3 = ListaMeta [2].Id;
+			pkTipoMeta3.SelectedIndex = ListaMeta[2].tipo;
+			entmeta3.Text=ListaMeta[2].meta;
+			entvalor3.Text=Convert.ToString(ListaMeta[2].valor);
+			dtinicio3.Date=Convert.ToDateTime(ListaMeta[2].fechainicio);
+			dtfinal3.Date=Convert.ToDateTime(ListaMeta[2].fechaFinal);
+			pkTipoAhorro3.SelectedIndex=ListaMeta[2].tipoAhorro;
+*/
+			/*var ListaCiudades = await new RestPaises ().getCiudades();
+			foreach (Ciudades tCiudad in ListaCiudades)
+			{
+				pkCiudad.Items.Add(tCiudad.nombre);
+			}*/
+
+			//var s = await new RestUsuarios().get();
+			Label e = new Label ();
+		}
+
+		protected void enviamensaje()
+		{
+			((NavigationPage)master.Detail).PushAsync(new PaZos.AccionesMensaje1(master));
 		}
 
 	}

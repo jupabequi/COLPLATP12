@@ -14,6 +14,17 @@ namespace PaZos
 
 		public AccionesDia (MasterDetailPage masterDetail, int dia)
 		{
+			var guardaritem = new ToolbarItem {
+				Text = "Guardar"
+			};
+			guardaritem.Clicked += (object sender, System.EventArgs e) => 
+			{
+				guardarAcciones();
+			};
+
+			ToolbarItems.Add(guardaritem);
+
+
 			master = masterDetail;
 
 			RelativeLayout layout = new RelativeLayout ();
@@ -200,6 +211,10 @@ namespace PaZos
 
 			master.Detail = NPdias;
 			*/
+		}
+		public async void guardarAcciones(){
+
+
 		}
 	}
 }

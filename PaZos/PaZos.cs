@@ -17,9 +17,14 @@ namespace PaZos
 
 			var isLoggedIn = Properties.ContainsKey("IsLoggedIn")?(bool)Properties ["IsLoggedIn"]:false;
 
+			var user = Properties.ContainsKey("usuario")?Properties ["usuario"]:null;
+
 			// we remember if they're logged in, and only display the login page if they're not
-			if (isLoggedIn)
-				MainPage = new PaZos.MainPage ();
+			if (isLoggedIn && user!=null) {
+
+				int usuario = (int)Properties ["usuario"];
+				MainPage = new PaZos.MainPage (null);
+			}
 			else
 				//MainPage = new LoginModalPage (this);
 				MainPage = new inicio (this);
@@ -27,9 +32,9 @@ namespace PaZos
 			//MainPage = new NavigationPage(new PaZos.Inicio ());
 		}
 
-		public void ShowMainPage ()
+		public void ShowMainPage (Usuario usuario)
 		{	
-			MainPage = new PaZos.MainPage ();
+			MainPage = new PaZos.MainPage (usuario);
 		}
 
 

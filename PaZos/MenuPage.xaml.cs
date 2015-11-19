@@ -25,12 +25,12 @@ namespace PaZos
 		private NavigationPage acerca;
 
 		public Button lbAcciones;
+		Usuario usuario;
 
-
-		public MenuPage (MasterDetailPage masterDetail)
+		public MenuPage (MasterDetailPage masterDetail, Usuario tusuario)
 		{
 			
-
+			usuario = tusuario;
 	
 			Title = "-";
 			//Icon = "slideout.png";
@@ -284,10 +284,10 @@ namespace PaZos
 		public void Selected(int option)
 		{
 
-			var mx = new MainPage ();
+			var mx = new MainPage (usuario);
 
 			MasterDetailPage md = new MasterDetailPage ();
-			md.Master = new MenuPage (md);
+			md.Master = new MenuPage (md,usuario);
 			/*
 			master = md;
 */
@@ -295,9 +295,9 @@ namespace PaZos
 
 			case 1:
 
-				iMM.ShowMetas ();
 
-				//((NavigationPage)master.Detail).PushAsync(new Metas(master));
+
+				((NavigationPage)master.Detail).PushAsync(new Metas(master,usuario));
 				/*master.Detail = metas ??
 					(metas = new NavigationPage (
 					new Metas (master)

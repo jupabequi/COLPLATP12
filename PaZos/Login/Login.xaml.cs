@@ -225,7 +225,8 @@ namespace PaZos
 			if(respuesta==1){
 
 				App.Current.Properties["IsLoggedIn"] = true;
-				ilm.ShowMainPage();
+				App.Current.Properties ["usuario"] = usuario[0].Id;
+				ilm.ShowMainPage(usuario[0]);
 			}else{
 				DisplayAlert("Error de validación", "Usuario o contraseña incorrecto.", "Intente nuevamente");
 			}

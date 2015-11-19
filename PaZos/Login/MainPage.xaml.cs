@@ -7,13 +7,17 @@ namespace PaZos
 {
 	public partial class MainPage : MasterDetailPage 
 	{
-		public MainPage ()
+
+		Usuario usuario;
+
+		public MainPage (Usuario tusuario)
 		{
-			var menupage = new MenuPage (this);
+			usuario = tusuario;
+			var menupage = new MenuPage (this, usuario);
 
 			//menupage.lbAcciones.Clicked += (sender, e) => NavigateTo (2);
 
-			Detail = new NavigationPage (new acciones (this));
+			Detail = new NavigationPage (new Metas (this,usuario));
 			//Detail = new NavigationPage (new acciones ());
 			Master = menupage;
 
@@ -36,7 +40,7 @@ namespace PaZos
 
 		public void showMetas ()
 		{	
-			Detail = new NavigationPage (new PaZos.Metas (this));
+			Detail = new NavigationPage (new PaZos.Metas (this,usuario));
 		}
 
 	}

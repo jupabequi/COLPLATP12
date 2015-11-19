@@ -15,6 +15,7 @@ namespace PaZos
 		public acciones (MasterDetailPage masterDetail)
 		{
 
+
 			ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
 			this.Title = "Acciones ahorradoras";
 
@@ -49,7 +50,7 @@ namespace PaZos
 
 			layout.Children.Add (imgDias,
 				Constraint.Constant (0),
-				Constraint.Constant (-40),
+				Constraint.Constant (-20),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width;
 				}),
@@ -117,9 +118,12 @@ namespace PaZos
 
 
 			int x = 118;
-			int y = 132;
+			int y = 152;
 			int gap = 62;
-				
+			int factor = 375;
+
+
+
 			var lblunes = new Button () {
 				Text = "",
 				TextColor = Color.White,
@@ -131,12 +135,14 @@ namespace PaZos
 
 			layout.Children.Add (lblunes,
 				Constraint.Constant (x),
-				Constraint.Constant (y),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width*y/factor;	
+				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 250;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 52;
+					return 40;
 				}));
 
 			//martes
@@ -151,12 +157,14 @@ namespace PaZos
 
 			layout.Children.Add (lbmartes,
 				Constraint.Constant (x),
-				Constraint.Constant (y+gap),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width*(y+gap)/factor;	
+				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 250;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 52;
+					return 40;
 				}));
 
 			//miercoles
@@ -171,12 +179,14 @@ namespace PaZos
 
 			layout.Children.Add (lbmiercoles,
 				Constraint.Constant (x),
-				Constraint.Constant (y+gap*2),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width*(y+gap*2)/factor;	
+				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 250;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 52;
+					return 40;
 				}));
 
 			//jueves
@@ -191,12 +201,14 @@ namespace PaZos
 
 			layout.Children.Add (lbjueves,
 				Constraint.Constant (x),
-				Constraint.Constant (y+gap*3),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width*(y+gap*3)/factor;	
+				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 250;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 52;
+					return 40;
 				}));
 
 			//viernes
@@ -211,12 +223,14 @@ namespace PaZos
 
 			layout.Children.Add (lbviernes,
 				Constraint.Constant (x),
-				Constraint.Constant (y+gap*4),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width*(y+gap*4)/factor;	
+				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 250;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 52;
+					return 40;
 				}));
 
 			//sabado
@@ -231,12 +245,14 @@ namespace PaZos
 
 			layout.Children.Add (lbsabado,
 				Constraint.Constant (x),
-				Constraint.Constant (y+gap*5),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width*(y+gap*5)/factor;	
+				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 250;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 52;
+					return 40;
 				}));
 
 			//domingo
@@ -251,12 +267,14 @@ namespace PaZos
 
 			layout.Children.Add (lbdomingo,
 				Constraint.Constant (x),
-				Constraint.Constant (y+gap*6),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width*(y+gap*6)/factor;	
+				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 250;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 52;
+					return 40;
 				}));
 
 
@@ -281,6 +299,8 @@ namespace PaZos
 			master.Detail = NPdias;*/
 			
 		}
+
+
 	}
 }
 

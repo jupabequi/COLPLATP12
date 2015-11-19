@@ -2,47 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PaZos.Metas"  >
 
 		<ContentPage.Content>
-		<ScrollView>
-			<AbsoluteLayout>
-			
-
-				<Label Text="¿Para qué quieres ahorrar?" FontSize="20" x:Name="lblTitle" XAlign="Center" FontFamily="MyriadPro-Bold" AbsoluteLayout.LayoutBounds="0,30" />
-				<Label AbsoluteLayout.LayoutBounds="0,70">
-				    <Label.FormattedText>
-				        <FormattedString>
-				            <FormattedString.Spans>
-				                <Span Text="Ingresa aquí, en orden de prioridad, 3." FontFamily="MyriadPro-Regular" />
-				                <Span Text=" metas especificas de ahorro. " FontFamily="MyriadPro-Bold"/>
-				                <Span Text="Define si tus metas son " FontFamily="MyriadPro-Regular"/>
-				                <Span Text="personales, " FontFamily="MyriadPro-Bold"/>
-				                <Span Text=" o para tu " FontFamily="MyriadPro-Regular"/>
-				                <Span Text="emprendimiento" FontFamily="MyriadPro-Bold"/>
-				            </FormattedString.Spans>
-				        </FormattedString>
-				    </Label.FormattedText>
-				</Label>
-
-				<Image Aspect="AspectFill" WidthRequest="338" HeightRequest="200" AbsoluteLayout.LayoutBounds="0,160" x:Name="imgMeta1">
-				</Image>
-
-				<Picker x:Name="pkTipoMeta" Title="Tipo de meta" AbsoluteLayout.LayoutBounds="180,180" ></Picker>
-				<Entry Placeholder="Escribe tu meta" AbsoluteLayout.LayoutBounds="35,220"/>
 	
-				<Entry Placeholder="" AbsoluteLayout.LayoutBounds="50,272" />
-
-				<DatePicker VerticalOptions="Center" AbsoluteLayout.LayoutBounds="150,280" >
-					<DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
-				</DatePicker>
-				<DatePicker VerticalOptions="Center" AbsoluteLayout.LayoutBounds="230,280">
-					<DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
-				</DatePicker>
-
-
-				<Picker x:Name="pkTipoAhorro" Title="Tipo de ahorro" AbsoluteLayout.LayoutBounds="35,315"></Picker>
-
-			</AbsoluteLayout>
-
-		</ScrollView>
 		<!--<StackLayout VerticalOptions="Center" HorizontalOptions="Center" x:Name="stk1">
 			
 			<Label Text="¿Para qué quieres ahorrar?" FontSize="20" x:Name="lblTitle" XAlign="Center" FontFamily="MyriadPro-Bold" />
