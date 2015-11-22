@@ -12,6 +12,9 @@ namespace PaZos
 		{
 			//InitializeComponent ();
 
+
+
+
 			Button btiniciasesion = new Button {
 				Text = "Inicia sesión",
 				VerticalOptions=LayoutOptions.Center,
@@ -30,6 +33,8 @@ namespace PaZos
 
 
 			RelativeLayout relativeLayaut = new RelativeLayout ();
+
+
 
 			relativeLayaut.Children.Add (btiniciasesion, 
 				Constraint.RelativeToParent ((parent) => {

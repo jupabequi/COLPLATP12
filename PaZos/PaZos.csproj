@@ -120,6 +120,13 @@
     <Compile Include="Code\Controles\AsisprinEntry.cs" />
     <Compile Include="Code\Controles\AsisprinPicker.cs" />
     <Compile Include="Code\Controles\AsisprinDatePicker.cs" />
+    <Compile Include="Code\Data\Entities\AccionesAhorradoras.cs" />
+    <Compile Include="Code\Data\Services\RestAccionesAhorradoras.cs" />
+    <Compile Include="Code\Data\Entities\AccionesAhorradorasEjecucion.cs" />
+    <Compile Include="Code\Data\Services\RestAccionesAhorradorasEjecucion.cs" />
+    <Compile Include="Code\Data\Services\RestProgreso.cs" />
+    <Compile Include="Code\Data\Entities\mensaje2.cs" />
+    <Compile Include="Code\Data\Services\RestMensaje2.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -224,6 +231,8 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\accionesmensaje1.png" />
+    <EmbeddedResource Include="Resources\Accionesmensaje2.png" />
+    <EmbeddedResource Include="Resources\cumplio.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

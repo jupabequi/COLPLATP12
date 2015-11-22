@@ -12,8 +12,18 @@ namespace PaZos
 		MasterDetailPage master;
 		private NavigationPage NPdias;
 
-		public AccionesDia (MasterDetailPage masterDetail, int dia)
+		List<AccionesAhorradoras> ListaAcciones;
+		Usuario usuario;
+		List<ExtendedEntry> txtaccion, txtvalor;
+		List<int> idaccion;
+		int dia;
+		RelativeLayout layout;
+
+		public AccionesDia (MasterDetailPage masterDetail, int tdia, Usuario tusuario)
 		{
+			usuario = tusuario;
+			dia = tdia;
+
 			var guardaritem = new ToolbarItem {
 				Text = "Guardar"
 			};
@@ -27,7 +37,7 @@ namespace PaZos
 
 			master = masterDetail;
 
-			RelativeLayout layout = new RelativeLayout ();
+			layout = new RelativeLayout ();
 
 			//Colocar background
 			var imgBackground = new Image () {
@@ -94,9 +104,9 @@ namespace PaZos
 				TextColor = Color.White,
 				//BackgroundColor = Color.Blue
 			};
-			lbdia.Clicked += (sender, args) => {
+			/*lbdia.Clicked += (sender, args) => {
 				Selected();
-			};
+			};*/
 
 			layout.Children.Add (lbdia,
 				Constraint.Constant (15),
@@ -110,96 +120,13 @@ namespace PaZos
 
 
 			//End Dias
-			ExtendedEntry txtaccion, txtvalor;
-			Label lbvalor;
-
-			int i, j = 3;
-			y = 52 + y + 10;
-
-			for (i = 1; i < j; i++) {
-				txtaccion = new ExtendedEntry () {
-					Placeholder = "Acción " + i.ToString()
-				};
-				layout.Children.Add (txtaccion,
-					Constraint.Constant (20),
-					Constraint.Constant (y+90*(i-1)),
-					Constraint.RelativeToParent ((Parent) => {
-						return Parent.Width - 40;
-					}),
-					Constraint.RelativeToParent ((Parent) => {
-						return 40;
-					}));	
-
-				lbvalor = new Label (){
-					Text = "Valor",
-					FontSize=22,
-					FontFamily =  "MyriadPro-Regular"
-				};
-				layout.Children.Add (lbvalor,
-					Constraint.RelativeToParent ((Parent) => {
-						return Parent.Width - 20 - 150 - 60;
-					}),
-					Constraint.Constant (y+55+90*(i-1)),
-					Constraint.RelativeToParent ((Parent) => {
-						return 100;
-					}),
-					Constraint.RelativeToParent ((Parent) => {
-						return 40;
-					}));	
-
-				txtvalor = new ExtendedEntry () {
-					
-				};
-				layout.Children.Add (txtvalor,
-					Constraint.RelativeToParent ((Parent) => {
-						return Parent.Width - 20 - 150;
-				}),
-					Constraint.Constant (y+45+90*(i-1)),
-					Constraint.RelativeToParent ((Parent) => {
-						return 150;
-					}),
-					Constraint.RelativeToParent ((Parent) => {
-						return 40;
-					}));	
 
 
-			}
+			cargarAcciones ();
 
-			y = y + 90 * (i-1);
 
-			lbvalor = new Label (){
-				Text = "Valor total",
-				FontSize=22,
-				FontFamily =  "MyriadPro-Regular"
-			};
-			layout.Children.Add (lbvalor,
-				Constraint.RelativeToParent ((Parent) => {
-					return Parent.Width - 20 - 200 - 110;
-				}),
-				Constraint.Constant (y+5),
-				Constraint.RelativeToParent ((Parent) => {
-					return 110;
-				}),
-				Constraint.RelativeToParent ((Parent) => {
-					return 40;
-				}));
 
-			ExtendedEntry txttotal = new ExtendedEntry () {
 
-			};
-			layout.Children.Add (txttotal,
-				Constraint.RelativeToParent ((Parent) => {
-					return Parent.Width - 20 - 200;
-				}),
-				Constraint.Constant (y),
-				Constraint.RelativeToParent ((Parent) => {
-					return 200;
-				}),
-				Constraint.RelativeToParent ((Parent) => {
-					return 40;
-				}));	
-
-			Content = layout;
 		}
 
 		public void Selected()
@@ -214,8 +141,212 @@ namespace PaZos
 		}
 		public async void guardarAcciones(){
 
+			int i;
+			ListaAcciones = new List<AccionesAhorradoras> ();
+			for (i = 0; i < txtvalor.Count-1; i++) {
+				ListaAcciones.Add(new AccionesAhorradoras(){
+					accion=txtaccion [i].Text,
+					valor=Convert.ToDouble(txtvalor [i].Text),
+					dia=dia,
+					uso=usuario.Id,
+					Id=idaccion[i]
+				});
+
+				var respuesta = await new RestAccionesAhorradoras ().actualizar (ListaAcciones [i]);
+			}
+
+			if(txtaccion[i].Text!=""){
+				ListaAcciones.Add(new AccionesAhorradoras(){
+					accion=txtaccion [i].Text,
+					valor=Convert.ToDouble(txtvalor [i].Text),
+					dia=dia,
+					uso=usuario.Id
+				});
+
+				var respuesta = await new RestAccionesAhorradoras ().guardar (ListaAcciones [i]);
+			}
+
+
+			var label = new Label ();
+		}
+		public async void cargarAcciones(){
+
+
+			var Lista = await new RestAccionesAhorradoras ().get (usuario);
+
+			int j = Lista.Count+1;
+			int y = 15;
+			Label lbvalor;
+			Double total=0;
+
+			txtaccion = new List<ExtendedEntry> ();
+			txtvalor = new List<ExtendedEntry> ();
+			idaccion = new List<int> ();
+
+			int i, a=1;
+			y = 52 + y + 10;
+
+			for (i = 1; i < j; i++) {
+				
+				total = total + Lista [i-1].valor;
+				idaccion.Add (Lista [i - 1].Id);
+
+				if (Lista [i - 1].dia == dia) {
+					
+					txtaccion.Add (new ExtendedEntry () {
+						Placeholder = "Acción " + a.ToString (),
+						Text = Lista [i - 1].accion,
+						Font = Font.OfSize ("TwCenMT-Condensed", 18)
+					});
+					layout.Children.Add (txtaccion [a - 1],
+						Constraint.Constant (20),
+						Constraint.Constant (y + 90 * (a - 1)),
+						Constraint.RelativeToParent ((Parent) => {
+							return Parent.Width - 40;
+						}),
+						Constraint.RelativeToParent ((Parent) => {
+							return 40;
+						}));	
+
+
+					lbvalor = new Label () {
+						Text = "Valor",
+						FontSize = 18,
+						FontFamily = "TwCenMT-Condensed"
+					};
+					layout.Children.Add (lbvalor,
+						Constraint.RelativeToParent ((Parent) => {
+							return Parent.Width - 20 - 150 - 45;
+						}),
+						Constraint.Constant (y + 55 + 90 * (a - 1)),
+						Constraint.RelativeToParent ((Parent) => {
+							return 100;
+						}),
+						Constraint.RelativeToParent ((Parent) => {
+							return 40;
+						}));	
+
+					txtvalor.Add (new ExtendedEntry () {
+						Text = Lista [i - 1].valor.ToString (),
+						Font = Font.OfSize ("TwCenMT-Condensed", 18),
+						XAlign = TextAlignment.End
+						
+					});
+					layout.Children.Add (txtvalor [a - 1],
+						Constraint.RelativeToParent ((Parent) => {
+							return Parent.Width - 20 - 150;
+						}),
+						Constraint.Constant (y + 45 + 90 * (a - 1)),
+						Constraint.RelativeToParent ((Parent) => {
+							return 150;
+						}),
+						Constraint.RelativeToParent ((Parent) => {
+							return 40;
+						}));	
+
+					a++;
+				}
+			}
+
+			txtaccion.Add ( new ExtendedEntry () {
+				Placeholder = "Acción " + a.ToString(),
+				Font = Font.OfSize("TwCenMT-Condensed",18)
+			});
+			layout.Children.Add (txtaccion[a-1],
+				Constraint.Constant (20),
+				Constraint.Constant (y+90*(a-1)),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width - 40;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 40;
+				}));	
+
+
+			lbvalor = new Label (){
+				Text = "Valor",
+				FontSize=18,
+				FontFamily =  "TwCenMT-Condensed"
+			};
+			layout.Children.Add (lbvalor,
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width - 20 - 150 - 45;
+				}),
+				Constraint.Constant (y+55+90*(a-1)),
+				Constraint.RelativeToParent ((Parent) => {
+					return 100;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 40;
+				}));	
+
+			txtvalor.Add (new ExtendedEntry () {
+				Font = Font.OfSize("TwCenMT-Condensed",18),
+				XAlign=TextAlignment.End
+			});
+			layout.Children.Add (txtvalor[a-1],
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width - 20 - 150;
+				}),
+				Constraint.Constant (y+45+90*(a-1)),
+				Constraint.RelativeToParent ((Parent) => {
+					return 150;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 40;
+				}));	
+			
+			y = y + 90 * (a);
+
+			lbvalor = new Label (){
+				Text = "Valor total",
+				FontSize=18,
+				FontFamily =  "TwCenMT-Condensed"
+			};
+			layout.Children.Add (lbvalor,
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width - 20 - 200 - 60;
+				}),
+				Constraint.Constant (y+5),
+				Constraint.RelativeToParent ((Parent) => {
+					return 60;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 40;
+				}));
+
+			ExtendedEntry txttotal = new ExtendedEntry () {
+				Font = Font.OfSize("TwCenMT-Condensed",18),
+				XAlign=TextAlignment.End,
+				IsEnabled=false,
+				Text=total.ToString()
+			};
+			layout.Children.Add (txttotal,
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width - 20 - 200;
+				}),
+				Constraint.Constant (y),
+				Constraint.RelativeToParent ((Parent) => {
+					return 200;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 40;
+				}));	
+
+			Content = layout;
+
+
+
+
+
+
+			var Label = new Label ();
 
 		}
+		public async void actualizarAcciones(){
+			var respuesta = await new RestAccionesAhorradoras ().actualizar (ListaAcciones [0]);
+		}
+
 	}
 }
 

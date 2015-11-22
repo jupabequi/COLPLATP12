@@ -306,7 +306,7 @@ namespace PaZos
 				break;
 			case 2:
 				
-				((NavigationPage)master.Detail).PushAsync(new acciones(master));
+				((NavigationPage)master.Detail).PushAsync(new acciones(master,usuario));
 				/*master.Detail = acciones ??
 					(acciones = new NavigationPage (
 						new acciones ()
@@ -314,7 +314,7 @@ namespace PaZos
 				);*/
 				break;
 			case 3:
-				((NavigationPage)master.Detail).PushAsync(new evaluacion(master));
+				((NavigationPage)master.Detail).PushAsync(new evaluacion(master,usuario));
 				/*master.Detail = evaluacion ??
 					(evaluacion = new NavigationPage (
 						new evaluacion (master)
@@ -322,7 +322,7 @@ namespace PaZos
 				);*/
 				break;
 			case 4:
-				((NavigationPage)master.Detail).PushAsync(new PaZos.progreso(master));
+				((NavigationPage)master.Detail).PushAsync(new PaZos.progreso(master,usuario));
 				/*master.Detail = progreso ??
 					(progreso = new NavigationPage (
 					new progreso (master)

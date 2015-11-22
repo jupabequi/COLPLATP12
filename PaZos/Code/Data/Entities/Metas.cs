@@ -11,6 +11,8 @@ namespace PaZos
 		public DateTime fechainicio;
 		public DateTime fechaFinal;
 		public int tipoAhorro;
+		public double acumulado;
+		public float porcentaje;
 
 	}
 }

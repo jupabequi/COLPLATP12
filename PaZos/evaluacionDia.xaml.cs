@@ -197,7 +197,7 @@ namespace PaZos
 		{
 
 			NPdias = new NavigationPage (
-				new evaluacion (master)
+				new evaluacion (master,null)
 			);
 
 			master.Detail = NPdias;

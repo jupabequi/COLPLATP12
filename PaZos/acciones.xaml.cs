@@ -11,10 +11,11 @@ namespace PaZos
 		MasterDetailPage master;
 		private NavigationPage NPdias;
 
+		Usuario usuario;
 
-		public acciones (MasterDetailPage masterDetail)
+		public acciones (MasterDetailPage masterDetail,Usuario tusuario)
 		{
-
+			usuario = tusuario;
 
 			ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
 			this.Title = "Acciones ahorradoras";
@@ -291,7 +292,7 @@ namespace PaZos
 		{
 
 
-			((NavigationPage)master.Detail).PushAsync(new PaZos.AccionesDia(master, dia));
+			((NavigationPage)master.Detail).PushAsync(new PaZos.AccionesDia(master, dia, usuario));
 			/*(NPdias = new NavigationPage (
 				new AccionesDia (master, dia)
 			);

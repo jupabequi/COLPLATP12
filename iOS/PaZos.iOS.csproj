@@ -133,6 +133,7 @@
     <BundleResource Include="Resources\Fonts\noteworthy.ttc" />
     <BundleResource Include="Resources\Fonts\tcmm.ttf" />
     <BundleResource Include="Resources\launch320x480.png" />
+    <BundleResource Include="Resources\FondoLogin.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

@@ -77,7 +77,7 @@ namespace PaZos
 				Constraint.Constant (0),
 				Constraint.Constant (0),
 				Constraint.RelativeToParent ((Parent) => {
-					return Parent.Width;
+					return Parent.Width*2;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Height;

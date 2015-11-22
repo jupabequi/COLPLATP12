@@ -13,20 +13,29 @@
                         <viewControllerLayoutGuide type="bottom" id="9ZL-r4-8FZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yd7-JS-zBw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="launch320x480.png" translatesAutoresizingMaskIntoConstraints="NO" id="23" autoresizesSubviews="NO" tag="0">
-                                <rect key="frame" x="-86" y="46" width="461" height="622"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" misplaced="YES" image="FondoLogin.png" translatesAutoresizingMaskIntoConstraints="NO" id="23" autoresizesSubviews="NO" tag="0">
+                                <rect key="frame" x="0.0" y="46" width="600" height="554"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 </variation>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="45" translatesAutoresizingMaskIntoConstraints="NO" image="launch320x480.png" misplaced="YES">
+                                <rect key="frame" x="166" y="134" width="268" height="423"/>
+                                <constraints>
+                                    <constraint id="51" firstAttribute="width" constant="268"/>
+                                    <constraint id="52" firstAttribute="height" constant="423"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="23" firstAttribute="centerY" secondItem="yd7-JS-zBw" secondAttribute="centerY" priority="1" id="39"/>
                             <constraint firstItem="23" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" priority="1" id="41"/>
+                            <constraint id="49" firstItem="45" firstAttribute="top" secondItem="yd7-JS-zBw" secondAttribute="top" constant="46"/>
+                            <constraint id="50" firstItem="45" firstAttribute="leading" secondItem="yd7-JS-zBw" secondAttribute="leading" constant="40"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,7 +45,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon-60.png" width="180" height="180"/>
+        <image name="Icon-60.png" width="60" height="60"/>
         <image name="Icon-76.png" width="76" height="76"/>
         <image name="Icon-Small.png" width="29" height="29"/>
         <image name="Icon-Small-40.png" width="40" height="40"/>
@@ -48,8 +57,6 @@
         <image name="Fonts/arial narrow.ttf" width="0" height="0"/>
         <image name="Fonts/tcmm.ttf" width="0" height="0"/>
         <image name="launch320x480.png" width="320" height="480"/>
+        <image name="FondoLogin.png" width="375" height="680"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina47"/>
-    </simulatedMetricsContainer>
 </document>
