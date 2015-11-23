@@ -233,6 +233,11 @@
     <EmbeddedResource Include="Resources\accionesmensaje1.png" />
     <EmbeddedResource Include="Resources\Accionesmensaje2.png" />
     <EmbeddedResource Include="Resources\cumplio.png" />
+    <EmbeddedResource Include="Resources\Felicitaciones.png" />
+    <EmbeddedResource Include="Resources\Animo.png" />
+    <EmbeddedResource Include="Resources\FelicitacionesFinalf.png" />
+    <EmbeddedResource Include="Resources\FinalInformate.png" />
+    <EmbeddedResource Include="Resources\acercade2.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

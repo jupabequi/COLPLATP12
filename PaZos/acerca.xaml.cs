@@ -32,7 +32,21 @@ namespace PaZos
 					return Parent.Height;
 				}));
 
+			var imgBackground2 = new Image () {
+				Source = ImageSource.FromResource ("PaZos.Resources.acercade2.png"),
+				Aspect = Aspect.AspectFill
+			};
 
+			layout.Children.Add (imgBackground2,
+				Constraint.Constant (0),
+				Constraint.Constant (0),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Height;
+				}));
+			
 
 
 

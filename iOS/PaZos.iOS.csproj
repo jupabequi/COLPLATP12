@@ -134,6 +134,8 @@
     <BundleResource Include="Resources\Fonts\tcmm.ttf" />
     <BundleResource Include="Resources\launch320x480.png" />
     <BundleResource Include="Resources\FondoLogin.png" />
+    <BundleResource Include="Resources\inicio2.png" />
+    <BundleResource Include="Resources\inicio2320x480.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

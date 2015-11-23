@@ -23,20 +23,32 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="45" translatesAutoresizingMaskIntoConstraints="NO" image="launch320x480.png" misplaced="YES">
-                                <rect key="frame" x="166" y="134" width="268" height="423"/>
-                                <constraints>
-                                    <constraint id="51" firstAttribute="width" constant="268"/>
-                                    <constraint id="52" firstAttribute="height" constant="423"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="bottom" id="70" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="inicio2320x480.png">
+                                <rect key="frame" x="113" y="360" width="160" height="240"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="41" y="191" width="160" height="240"/>
+                                </variation>
+                                <rect key="contentStretch.width" x="0.95" y="0.0" width="1" height="1"/>
                             </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="23" firstAttribute="centerY" secondItem="yd7-JS-zBw" secondAttribute="centerY" priority="1" id="39"/>
                             <constraint firstItem="23" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" priority="1" id="41"/>
-                            <constraint id="49" firstItem="45" firstAttribute="top" secondItem="yd7-JS-zBw" secondAttribute="top" constant="46"/>
-                            <constraint id="50" firstItem="45" firstAttribute="leading" secondItem="yd7-JS-zBw" secondAttribute="leading" constant="40"/>
+                            <constraint id="76" firstItem="70" firstAttribute="height" secondItem="23" secondAttribute="height"/>
+                            <constraint id="77" firstItem="70" firstAttribute="height" secondItem="23" secondAttribute="height"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="76"/>
+                                <exclude reference="77"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="76"/>
+                                <include reference="77"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAI-xm-WK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -58,5 +70,11 @@
         <image name="Fonts/tcmm.ttf" width="0" height="0"/>
         <image name="launch320x480.png" width="320" height="480"/>
         <image name="FondoLogin.png" width="375" height="680"/>
+        <image name="inicio2.png" width="375" height="610"/>
+        <image name="inicio2320x480.png" width="295" height="480"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedOrientationMetrics key="orientation"/>
+    </simulatedMetricsContainer>
 </document>

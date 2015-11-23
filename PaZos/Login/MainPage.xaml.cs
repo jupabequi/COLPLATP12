@@ -18,7 +18,7 @@ namespace PaZos
 			//menupage.lbAcciones.Clicked += (sender, e) => NavigateTo (2);
 
 			//Detail = new NavigationPage (new Metas (this,usuario));
-			Detail = new NavigationPage (new Cumplio (this,usuario));
+			Detail = new NavigationPage (new Preguntas (this,usuario));
 			//Detail = new NavigationPage (new acciones ());
 			Master = menupage;
 

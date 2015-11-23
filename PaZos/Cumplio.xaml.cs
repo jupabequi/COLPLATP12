@@ -10,12 +10,22 @@ namespace PaZos
 	{
 		MasterDetailPage master;
 		Usuario usuario;
+		Switch slino;
 
 		public Cumplio (MasterDetailPage masterDetail, Usuario tusuario)
 		{
 			usuario = tusuario;
 
-			ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
+			var guardaritem = new ToolbarItem {
+				Text = "Continuar"
+			};
+			guardaritem.Clicked += (object sender, System.EventArgs e) => 
+			{
+				continuar();
+			};
+
+			//ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
+			ToolbarItems.Add(guardaritem);
 			this.Title = "Acciones ahorradoras";
 
 			master = masterDetail;
@@ -24,7 +34,7 @@ namespace PaZos
 
 			//Colocar background
 			var imgBackground = new Image () {
-				Source = ImageSource.FromResource ("PaZos.Resources.FondoAcciones.png"),
+				Source = ImageSource.FromResource ("PaZos.Resources.FondoLogin.png"),
 				Aspect = Aspect.AspectFill
 			};
 
@@ -60,7 +70,8 @@ namespace PaZos
 
 			var fs = new FormattedString ();
 
-			int y = 60;
+			int y = 75;
+			int factor = 375;
 
 			Span sp2 = new Span () {
 				Text = "¿Cumpliste con tus acciones ahorradoras?",
@@ -72,18 +83,20 @@ namespace PaZos
 
 			layout.Children.Add (lbtexto,
 				Constraint.Constant (45),
-				Constraint.Constant (y),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width*75/factor;	
+				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-90;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 40;
 				}));
-
+			
 			y = y + 60;
 
 
-			Switch slino = new Switch () {
+			slino = new Switch () {
 				
 			};
 
@@ -91,22 +104,27 @@ namespace PaZos
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width/2-15;
 				}),
-				Constraint.Constant (y-7),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width*135/factor;	
+				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 60;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 60;
 				}));
-
+			
 			Label lblno = new Label () {
-				Text="No"
+				Text="No",
+				Font = Font.OfSize("TwCenMT-Condensed",18)
 			};
 			layout.Children.Add (lblno,
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width/2-60;
 				}),
-				Constraint.Constant (y),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width*140/factor;	
+				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 60;
 				}),
@@ -115,13 +133,16 @@ namespace PaZos
 				}));
 
 			Label lblsi = new Label () {
-				Text="Si"
+				Text="Si",
+				Font = Font.OfSize("TwCenMT-Condensed",18)
 			};
 			layout.Children.Add (lblsi,
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width/2+60;
 				}),
-				Constraint.Constant (y),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width*140/factor;	
+				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 60;
 				}),
@@ -129,7 +150,50 @@ namespace PaZos
 					return 60;
 				}));
 
+			y = y + 100;
+
+			Label lbtexto3 = new Label ();
+			lbtexto3.HorizontalOptions = LayoutOptions.CenterAndExpand;
+			lbtexto3.XAlign = TextAlignment.Center;
+
+			var fs3 = new FormattedString ();
+
+
+			Span sp3 = new Span () {
+				Text = "Guarda y protege tu dinero en un lugar seguro, ¿estás ahorrando en un banco?",
+				FontFamily = "MyriadPro-Regular",
+				FontSize=16
+			};
+			fs3.Spans.Add (sp3);
+
+			lbtexto3.FormattedText = fs3;
+
+			layout.Children.Add (lbtexto3,
+				Constraint.Constant (40),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width*260/factor;	
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width-80;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 80;
+				}));	
+			
+
+
+
 			Content = layout;
+		}
+
+		public void continuar(){
+
+			if (slino.IsToggled) {
+
+				((NavigationPage)master.Detail).PushAsync(new PaZos.Felicitaciones(master));
+			} else {
+				((NavigationPage)master.Detail).PushAsync(new PaZos.Animo(master));
+			}
 		}
 	}
 }
