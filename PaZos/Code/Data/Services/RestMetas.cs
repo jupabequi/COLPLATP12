@@ -67,6 +67,30 @@ namespace PaZos
 				return false;
 			}
 		}
+
+		public async Task<List<respuesta>> validar (Usuario usuario)
+		{			
+
+
+			try 
+			{
+				var json = JsonConvert.SerializeObject (usuario);
+
+				var uri = new Uri (string.Format (ServiceUrl + "?action=4&usuario={0}", json));
+
+				var response = await client.GetAsync (uri);
+				if (response.IsSuccessStatusCode) {
+					var content = await response.Content.ReadAsStringAsync ();
+					return JsonConvert.DeserializeObject <List<respuesta>> (content);
+				}
+				return null;
+			} catch (Exception ex) 
+			{
+				Debug.WriteLine (@"ERROR {0}", ex.Message);
+				return null;
+			}				
+		}
+
 	}
 
 

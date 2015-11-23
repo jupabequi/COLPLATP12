@@ -3,7 +3,7 @@
 namespace PaZos
 {
 	public interface ILoginManager {
-		void ShowMainPage (Usuario usuario);
+		void ShowMainPage (Usuario usuario,int opc);
 		void Logout();
 		void ShowRegistro ();
 		void ShowLogin(string usuario);

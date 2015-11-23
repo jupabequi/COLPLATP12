@@ -9,6 +9,8 @@ namespace PaZos
 	public partial class AccionesDia : ContentPage
 	{
 
+
+
 		MasterDetailPage master;
 		private NavigationPage NPdias;
 
@@ -33,7 +35,7 @@ namespace PaZos
 			};
 
 			ToolbarItems.Add(guardaritem);
-
+			this.Title = "Acciones ahorradoras";
 
 			master = masterDetail;
 
@@ -155,7 +157,7 @@ namespace PaZos
 				var respuesta = await new RestAccionesAhorradoras ().actualizar (ListaAcciones [i]);
 			}
 
-			if(txtaccion[i].Text!=""){
+			if(txtaccion[i].Text!="" && txtaccion[i].Text!= null){
 				ListaAcciones.Add(new AccionesAhorradoras(){
 					accion=txtaccion [i].Text,
 					valor=Convert.ToDouble(txtvalor [i].Text),
@@ -166,6 +168,7 @@ namespace PaZos
 				var respuesta = await new RestAccionesAhorradoras ().guardar (ListaAcciones [i]);
 			}
 
+			//cargarAcciones ();
 
 			var label = new Label ();
 		}
@@ -227,11 +230,12 @@ namespace PaZos
 						}));	
 
 					txtvalor.Add (new ExtendedEntry () {
-						Text = Lista [i - 1].valor.ToString (),
+						Text = Lista [i - 1].valor.ToString ("N0"),
 						Font = Font.OfSize ("TwCenMT-Condensed", 18),
 						XAlign = TextAlignment.End
 						
 					});
+					txtvalor[a - 1].Behaviors.Add (new NumberValidatorBehavior ());
 					layout.Children.Add (txtvalor [a - 1],
 						Constraint.RelativeToParent ((Parent) => {
 							return Parent.Width - 20 - 150;
@@ -284,6 +288,7 @@ namespace PaZos
 				Font = Font.OfSize("TwCenMT-Condensed",18),
 				XAlign=TextAlignment.End
 			});
+			txtvalor[a-1].Behaviors.Add (new NumberValidatorBehavior ());
 			layout.Children.Add (txtvalor[a-1],
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width - 20 - 150;
@@ -319,7 +324,7 @@ namespace PaZos
 				Font = Font.OfSize("TwCenMT-Condensed",18),
 				XAlign=TextAlignment.End,
 				IsEnabled=false,
-				Text=total.ToString()
+				Text="$ " + total.ToString("N0")
 			};
 			layout.Children.Add (txttotal,
 				Constraint.RelativeToParent ((Parent) => {
@@ -333,8 +338,15 @@ namespace PaZos
 					return 40;
 				}));	
 
-			Content = layout;
 
+			ScrollView scrollview = new ScrollView {
+
+				Content = layout
+
+			};
+
+
+			Content = scrollview;
 
 
 

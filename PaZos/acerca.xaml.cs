@@ -14,6 +14,9 @@ namespace PaZos
 		{
 			master = masterDetail;
 
+			ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
+			this.Title = "Acerca de..";
+
 			RelativeLayout layout = new RelativeLayout ();
 
 			//Colocar background

@@ -46,6 +46,7 @@ namespace PaZos
 
 		public progreso (MasterDetailPage masterDetail, Usuario tusuario)
 		{
+			ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
 			this.Title = "Progreso";
 			usuario = tusuario;
 
@@ -150,7 +151,7 @@ namespace PaZos
 			y = y + 40 + 2;
 			entvalor = new ExtendedEntry() {
 				Placeholder = "$",
-				Font = Font.OfSize("TwCenMT-Condensed",28),
+				Font = Font.OfSize("TwCenMT-Condensed",26),
 				XAlign= TextAlignment.End,
 				IsEnabled=false
 			};
@@ -161,7 +162,7 @@ namespace PaZos
 				Constraint.Constant (20),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2;
+					return (Parent.Width-40)/2-30;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 40;
@@ -176,11 +177,11 @@ namespace PaZos
 			};
 			layout.Children.Add (lbinicia,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2+5+20;
+					return (Parent.Width-40)/2+5+20-30;
 				}),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 10;
@@ -199,11 +200,11 @@ namespace PaZos
 
 			layout.Children.Add (dtinicio,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2+5+20;
+					return (Parent.Width-40)/2+5+20-30;
 				}),
 				Constraint.Constant (y+10),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 30;
@@ -216,11 +217,11 @@ namespace PaZos
 			};
 			layout.Children.Add (lbTermina,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4*3+5+20;
+					return (Parent.Width-40)/4*3+5+20-15;
 				}),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 10;
@@ -233,11 +234,11 @@ namespace PaZos
 			};
 			layout.Children.Add (dtfinal,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4*3+5+20;
+					return (Parent.Width-40)/4*3+5+20-15;
 				}),
 				Constraint.Constant (y+10),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 30;
@@ -341,7 +342,7 @@ namespace PaZos
 			y = y + 40 + 2;
 			entvalor2 = new ExtendedEntry() {
 				Placeholder = "$",
-				Font = Font.OfSize("TwCenMT-Condensed",28),
+				Font = Font.OfSize("TwCenMT-Condensed",26),
 				XAlign= TextAlignment.End,
 				IsEnabled=false
 			};
@@ -350,7 +351,7 @@ namespace PaZos
 				Constraint.Constant (20),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2;
+					return (Parent.Width-40)/2-30;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 40;
@@ -398,11 +399,11 @@ namespace PaZos
 			};
 			layout.Children.Add (lbinicia2,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2+5+20;
+					return (Parent.Width-40)/2+5+20-30;
 				}),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 10;
@@ -415,11 +416,11 @@ namespace PaZos
 			};
 			layout.Children.Add (dtinicio2,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2+5+20;
+					return (Parent.Width-40)/2+5+20-30;
 				}),
 				Constraint.Constant (y+10),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 30;
@@ -433,11 +434,11 @@ namespace PaZos
 			};
 			layout.Children.Add (lbTermina2,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4*3+5+20;
+					return (Parent.Width-40)/4*3+5+20-15;
 				}),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 10;
@@ -450,11 +451,11 @@ namespace PaZos
 			};
 			layout.Children.Add (dtfinal2,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4*3+5+20;
+					return (Parent.Width-40)/4*3+5+20-15;
 				}),
 				Constraint.Constant (y+10),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 30;
@@ -572,7 +573,7 @@ namespace PaZos
 			y = y + 40 + 2;
 			entvalor3 = new ExtendedEntry() {
 				Placeholder = "$",
-				Font = Font.OfSize("TwCenMT-Condensed",28),
+				Font = Font.OfSize("TwCenMT-Condensed",26),
 				XAlign= TextAlignment.End,
 				IsEnabled=false
 			};
@@ -581,7 +582,7 @@ namespace PaZos
 				Constraint.Constant (20),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2;
+					return (Parent.Width-40)/2-30;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 40;
@@ -595,11 +596,11 @@ namespace PaZos
 			};
 			layout.Children.Add (lbinicia3,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2+5+20;
+					return (Parent.Width-40)/2+5+20-30;
 				}),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 10;
@@ -611,11 +612,11 @@ namespace PaZos
 			};
 			layout.Children.Add (dtinicio3,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2+5+20;
+					return (Parent.Width-40)/2+5+20-30;
 				}),
 				Constraint.Constant (y+10),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 30;
@@ -628,11 +629,11 @@ namespace PaZos
 			};
 			layout.Children.Add (lbTermina3,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4*3+5+20;
+					return (Parent.Width-40)/4*3+5+20-15;
 				}),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 10;
@@ -644,11 +645,11 @@ namespace PaZos
 			};
 			layout.Children.Add (dtfinal3,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4*3+5+20;
+					return (Parent.Width-40)/4*3+5+20-15;
 				}),
 				Constraint.Constant (y+10),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 30;
@@ -727,28 +728,28 @@ namespace PaZos
 			Id = ListaMeta [0].Id;
 			pkTipoMeta.SelectedIndex = ListaMeta[0].tipo;
 			entmeta.Text=ListaMeta[0].meta;
-			entvalor.Text="$ " + Convert.ToString(ListaMeta[0].valor);
+			entvalor.Text="$ " + ListaMeta[0].valor.ToString("N0");
 			dtinicio.Date= Convert.ToDateTime(ListaMeta[0].fechainicio);
 			dtfinal.Date=Convert.ToDateTime(ListaMeta[0].fechaFinal);
-			entacumulado.Text = "$ " + ListaMeta [0].acumulado.ToString();
+			entacumulado.Text = "$ " + ListaMeta [0].acumulado.ToString("N0");
 			porcentaje.Text = ListaMeta [0].porcentaje.ToString() + "%";
 
 			Id2 = ListaMeta [1].Id;
 			pkTipoMeta2.SelectedIndex = ListaMeta[1].tipo;
 			entmeta2.Text=ListaMeta[1].meta;
-			entvalor2.Text="$ " + Convert.ToString(ListaMeta[1].valor);
+			entvalor2.Text="$ " + ListaMeta[1].valor.ToString("N0");
 			dtinicio2.Date=Convert.ToDateTime(ListaMeta[1].fechainicio);
 			dtfinal2.Date=Convert.ToDateTime(ListaMeta[1].fechaFinal);
-			entacumulado2.Text ="$ " + ListaMeta [1].acumulado.ToString();
+			entacumulado2.Text ="$ " + ListaMeta [1].acumulado.ToString("N0");
 			porcentaje2.Text = ListaMeta [1].porcentaje.ToString()+"%";
 
 			Id3 = ListaMeta [2].Id;
 			pkTipoMeta3.SelectedIndex = ListaMeta[2].tipo;
 			entmeta3.Text=ListaMeta[2].meta;
-			entvalor3.Text="$ " + Convert.ToString(ListaMeta[2].valor);
+			entvalor3.Text="$ " + ListaMeta[2].valor.ToString("N0");
 			dtinicio3.Date=Convert.ToDateTime(ListaMeta[2].fechainicio);
 			dtfinal3.Date=Convert.ToDateTime(ListaMeta[2].fechaFinal);
-			entacumulado3.Text = "$ " + ListaMeta [2].acumulado.ToString();
+			entacumulado3.Text = "$ " + ListaMeta [2].acumulado.ToString("N0");
 			porcentaje3.Text = ListaMeta [2].porcentaje.ToString() + "%";
 
 		}

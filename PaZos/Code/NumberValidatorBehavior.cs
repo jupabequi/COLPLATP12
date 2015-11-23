@@ -31,7 +31,7 @@ namespace PaZos
 			double result;
 			IsValid = double.TryParse(e.NewTextValue, out result);
 			((Entry)sender).TextColor = IsValid ? Color.Default : Color.Red;
-
+			((Entry)sender).Text = IsValid ? result.ToString ("N0") : e.NewTextValue;
 		}
 
 		protected override void OnDetachingFrom(Entry bindable)

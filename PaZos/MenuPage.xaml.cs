@@ -78,13 +78,14 @@ namespace PaZos
 			};
 
 			int y = 30;
+			int size = 22;
 
             layout.Children.Add(imgMeta,
                 Constraint.Constant(0),
                 Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
-                    return 270;
+                    return Parent.Width*270/300;
                 }),
                 Constraint.RelativeToParent((Parent) =>
                 {
@@ -94,7 +95,7 @@ namespace PaZos
             {
                 Text = "Metas",
                 TextColor = Color.White,
-				FontSize=26,
+				FontSize=size,
 				FontFamily =  "MyriadPro-Bold",
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center
@@ -109,7 +110,7 @@ namespace PaZos
                 Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
-                    return 270;
+						return Parent.Width*270/300;
                 }),
                 Constraint.RelativeToParent((Parent) =>
                 {
@@ -122,7 +123,7 @@ namespace PaZos
                 Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
-                    return 270;
+						return Parent.Width*270/300;
                 }),
                 Constraint.RelativeToParent((Parent) =>
                 {
@@ -132,7 +133,7 @@ namespace PaZos
             {
                 Text = "Acciones ahorradoras",
                 TextColor = Color.White,
-				FontSize=26,
+				FontSize=size,
 				FontFamily =  "MyriadPro-Bold",
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center
@@ -148,7 +149,7 @@ namespace PaZos
                 Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
-                    return 270;
+						return Parent.Width*270/300;
                 }),
                 Constraint.RelativeToParent((Parent) =>
                 {
@@ -161,7 +162,7 @@ namespace PaZos
                 Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
-                    return 270;
+						return Parent.Width*270/300;
                 }),
                 Constraint.RelativeToParent((Parent) =>
                 {
@@ -171,7 +172,7 @@ namespace PaZos
             {
                 Text = "Evaluación del día",
                 TextColor = Color.White,
-				FontSize=26,
+				FontSize=size,
 				FontFamily =  "MyriadPro-Bold",
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center
@@ -186,7 +187,7 @@ namespace PaZos
                 Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
-                    return 270;
+						return Parent.Width*270/300;
                 }),
                 Constraint.RelativeToParent((Parent) =>
                 {
@@ -198,7 +199,7 @@ namespace PaZos
                 Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
-                    return 270;
+						return Parent.Width*270/300;
                 }),
                 Constraint.RelativeToParent((Parent) =>
                 {
@@ -208,7 +209,7 @@ namespace PaZos
             {
                 Text = "Progreso",
                 TextColor = Color.White,
-				FontSize=26,
+				FontSize=size,
 				FontFamily =  "MyriadPro-Bold",
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center
@@ -223,7 +224,7 @@ namespace PaZos
                 Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
-                    return 270;
+						return Parent.Width*270/300;
                 }),
                 Constraint.RelativeToParent((Parent) =>
                 {
@@ -236,7 +237,7 @@ namespace PaZos
 				Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
-                    return 270;
+						return Parent.Width*270/300;
                 }),
                 Constraint.RelativeToParent((Parent) =>
                 {
@@ -246,7 +247,7 @@ namespace PaZos
             {
                 Text = "Acerca de..",
                 TextColor = Color.White,
-				FontSize=26,
+				FontSize=size,
 				FontFamily =  "MyriadPro-Bold",
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center
@@ -261,7 +262,7 @@ namespace PaZos
                 Constraint.Constant(y),
                 Constraint.RelativeToParent((Parent) =>
                 {
-                    return 270;
+						return Parent.Width*270/300;
                 }),
                 Constraint.RelativeToParent((Parent) =>
                 {
@@ -274,8 +275,8 @@ namespace PaZos
 				BackgroundColor = Color.Black,
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				Children = {
-					layout,
-                    logoutButton
+					layout/*,
+                    logoutButton*/
 				}
 			};
 

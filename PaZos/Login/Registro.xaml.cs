@@ -20,6 +20,8 @@ namespace PaZos
 		public Registro (ILoginManager ilm)
 		{
 
+			this.Title = "Registro";
+
 			RelativeLayout layout = new RelativeLayout ();
 
 			//Colocar background
@@ -38,14 +40,62 @@ namespace PaZos
 					return Parent.Height;
 				}));
 
-			int alto = 40;
+
+			BoxView bv = new BoxView () {
+				BackgroundColor = Color.FromRgb(232,78,27)
+			};
+			layout.Children.Add (bv,
+				Constraint.Constant (0),
+				Constraint.Constant (0),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 60;
+				}));
+
+			Label titulo = new Label () {
+				Text="Registro",
+				FontSize = 24,
+				FontFamily = "TwCenMT-Condensed",
+				TextColor = Color.White,
+				HorizontalOptions=LayoutOptions.Center,
+				XAlign= TextAlignment.Center
+			};
+			layout.Children.Add (titulo,
+				Constraint.Constant (0),
+				Constraint.Constant (25),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 60;
+				}));
+
+			var logo = new Image () {
+				Source = ImageSource.FromResource ("PaZos.Resources.pazosicon.png"),
+				Aspect = Aspect.AspectFill
+			};
+
+			layout.Children.Add (logo,
+				Constraint.Constant (15),
+				Constraint.Constant (15),
+				Constraint.RelativeToParent ((Parent) => {
+					return 40;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 40;
+				}));
+			
+
+			int alto = 35;
 			int ytemp = 70;
 
 
 			var txtNombre = new ExtendedEntry () {
 				Placeholder="Nombre",
 				BackgroundColor = Color.White,
-				Font = Font.OfSize("TwCenMT-Condensed",22),
+				Font = Font.OfSize("TwCenMT-Condensed",18),
 				HasBorder=true
 			};
 
@@ -64,7 +114,7 @@ namespace PaZos
 			var txtApellido = new ExtendedEntry () {
 				Placeholder="Apellido",
 				BackgroundColor = Color.White,
-				Font = Font.OfSize("TwCenMT-Condensed",22),
+				Font = Font.OfSize("TwCenMT-Condensed",18),
 				HasBorder=true
 			};
 			layout.Children.Add (txtApellido,
@@ -84,7 +134,7 @@ namespace PaZos
 			var txtCorreo = new ExtendedEntry () {
 				Placeholder="Correo electrónico",
 				BackgroundColor = Color.White,
-				Font = Font.OfSize("TwCenMT-Condensed",22),
+				Font = Font.OfSize("TwCenMT-Condensed",18),
 				HasBorder=true
 			};
 			layout.Children.Add (txtCorreo,
@@ -103,7 +153,7 @@ namespace PaZos
 			var txtUsuario = new ExtendedEntry () {
 				Placeholder="Usuario (Nombre para mostrar)",
 				BackgroundColor = Color.White,
-				Font = Font.OfSize("TwCenMT-Condensed",22),
+				Font = Font.OfSize("TwCenMT-Condensed",18),
 				HasBorder=true
 			};
 			layout.Children.Add (txtUsuario,
@@ -115,13 +165,13 @@ namespace PaZos
 				Constraint.RelativeToParent ((Parent) => {
 					return alto;
 				}));
-			txtUsuario.Behaviors.Add (new MaxLengthValidator { MaxLength = 10 });
+			txtUsuario.Behaviors.Add (new MaxLengthValidator { MaxLength = 12 });
 
 			ytemp = ytemp + alto+10;
 			var txtclave = new ExtendedEntry () {
 				Placeholder="Contraseña",
 				BackgroundColor = Color.White,
-				Font = Font.OfSize("TwCenMT-Condensed",22),
+				Font = Font.OfSize("TwCenMT-Condensed",18),
 				HasBorder=true,
 				IsPassword=true
 			};
@@ -140,7 +190,7 @@ namespace PaZos
 			var txtclave2 = new ExtendedEntry () {
 				Placeholder="Repetir contraseña",
 				BackgroundColor = Color.White,
-				Font = Font.OfSize("TwCenMT-Condensed",22),
+				Font = Font.OfSize("TwCenMT-Condensed",18),
 				HasBorder=true,
 				IsPassword=true
 			};
@@ -157,7 +207,7 @@ namespace PaZos
 			txtclave2.Behaviors.Add (new MaxLengthValidator { MaxLength = 12 });
 
 			ytemp = ytemp + alto+10;
-			var txtedad = new Picker () {
+			var txtedad = new AsisprinPicker () {
 				Title="Edad",
 				BackgroundColor = Color.White
 			};
@@ -183,7 +233,7 @@ namespace PaZos
 
 
 
-			var pksexo = new Picker () {
+			var pksexo = new AsisprinPicker () {
 				Title="Sexo",
 				BackgroundColor = Color.White
 			};
@@ -210,7 +260,7 @@ namespace PaZos
 				}));
 
 			ytemp = ytemp + alto+10;
-			pkPais = new Picker () {
+			pkPais = new AsisprinPicker () {
 				Title="Pais",
 				BackgroundColor = Color.White
 			};
@@ -232,7 +282,7 @@ namespace PaZos
 				
 
 			ytemp = ytemp + alto;
-			pkDepartamento = new Picker () {
+			pkDepartamento = new AsisprinPicker () {
 				Title="Departamento",
 				BackgroundColor = Color.White
 			};
@@ -253,7 +303,7 @@ namespace PaZos
 			};
 
 			ytemp = ytemp + alto;
-			pkCiudad = new Picker () {
+			pkCiudad = new AsisprinPicker () {
 				Title="Ciudad o municipio",
 				BackgroundColor = Color.White
 			};
@@ -314,7 +364,7 @@ namespace PaZos
 				Constraint.RelativeToParent ((Parent) => {
 					return alto;
 				}));
-
+			/*
 			ytemp = ytemp + alto+10;
 			var lbmen1 = new Label () {
 				Text = "Si continúas, aceptas las",
@@ -368,12 +418,17 @@ namespace PaZos
 
 				MessagingCenter.Send<ContentPage> (this, "Login");
 			};
+*/
+
+			ScrollView scrollview = new ScrollView {
+
+				Content = layout
+
+			};
 
 
 
-
-
-			Content = layout;
+			Content = scrollview;
 
 
 

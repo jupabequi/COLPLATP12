@@ -19,10 +19,10 @@ namespace PaZos
 
 			var button = new Button { 
 				Text = "Iniciar sesión",
-				FontSize = 24,
 				TextColor = Color.FromHex("#FFFFFF"),
 				FontAttributes = FontAttributes.Bold,
-				BackgroundColor = Color.Gray
+				BackgroundColor = Color.Gray,
+				Font = Font.OfSize("TwCenMT-Condensed",22)
 			};
 			button.Clicked += (sender, e) => {
 				if (String.IsNullOrEmpty(username.Text) || String.IsNullOrEmpty(password.Text))
@@ -50,7 +50,8 @@ namespace PaZos
 
 			username = new ExtendedEntry {
              Placeholder="Usuario",
-				BackgroundColor = Color.White
+				BackgroundColor = Color.White,
+				Font = Font.OfSize("TwCenMT-Condensed",18),
             };
 
 			if (usuario != null) {
@@ -61,7 +62,8 @@ namespace PaZos
 			password = new ExtendedEntry { 
 				Placeholder="Contraseña",
 				BackgroundColor = Color.White,
-				IsPassword=true
+				IsPassword=true,
+				Font = Font.OfSize("TwCenMT-Condensed",18)
 			
 			};
 			//password.WidthRequest = 280;
@@ -69,7 +71,8 @@ namespace PaZos
 			var btnolvido = new Button {
 				Text = "¿Olvidaste la contraseña?",
 				TextColor = Color.Black,
-				VerticalOptions = LayoutOptions.Center
+				VerticalOptions = LayoutOptions.Center,
+				Font = Font.OfSize("MyriadPro-Regular",12)
 			};
 
 
@@ -128,16 +131,16 @@ namespace PaZos
 					return Parent.Width - 60;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return 40;
 				}));
 			//abslayout.Children.Add (new Label { Text = "Password" }, new Point (50, 50));
 			abslayout.Children.Add (password, 
 				Constraint.Constant (30),
 				Constraint.RelativeToParent ((Parent) => {
 					if(Parent.Width-50>375){
-						return y+50;
+						return y+40;
 					}else{
-						return (y+50)-(350-((Parent.Width-50)*350/375));
+						return (y+40)-(350-((Parent.Width-50)*350/375));
 
 					}
 
@@ -146,15 +149,15 @@ namespace PaZos
 					return Parent.Width-60;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 50;
+					return 40;
 				}));
 			abslayout.Children.Add (button,  
 				Constraint.Constant (30),
 				Constraint.RelativeToParent ((Parent) => {
 					if(Parent.Width-50>375){
-						return y+50*2+10;
+						return y+40*2+10;
 					}else{
-						return (y+50*2+10)-(350-((Parent.Width-50)*350/375));
+						return (y+40*2+10)-(350-((Parent.Width-50)*350/375));
 
 					}
 
@@ -163,16 +166,16 @@ namespace PaZos
 					return Parent.Width - 60;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return 60;
+					return 40;
 				}));
 
 			abslayout.Children.Add (btnolvido,  
 				Constraint.Constant (30),
 				Constraint.RelativeToParent ((Parent) => {
 					if(Parent.Width-50>375){
-						return y+50*2+10+70;
+						return y+40*2+10+50;
 					}else{
-						return (y+50*2+10+70)-(350-((Parent.Width-50)*350/375));
+						return (y+40*2+10+50)-(350-((Parent.Width-50)*350/375));
 
 					}
 
@@ -226,7 +229,12 @@ namespace PaZos
 
 				App.Current.Properties["IsLoggedIn"] = true;
 				App.Current.Properties ["usuario"] = usuario[0].Id;
-				ilm.ShowMainPage(usuario[0]);
+
+				List<respuesta> resp = await new RestMetas ().validar (usuario[0]);
+
+
+				ilm.ShowMainPage (usuario [0], resp[0].cantidad);
+
 			}else{
 				DisplayAlert("Error de validación", "Usuario o contraseña incorrecto.", "Intente nuevamente");
 			}
@@ -234,6 +242,13 @@ namespace PaZos
 
 
 		
+
+		}
+
+		public async void validar(){
+
+
+
 
 		}
 

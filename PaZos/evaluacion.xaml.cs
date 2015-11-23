@@ -486,8 +486,10 @@ namespace PaZos
 
 			accionvalor = new ExtendedEntry(){
 				Placeholder="$",
-				Font = Font.OfSize("TwCenMT-Condensed",22)
+				Font = Font.OfSize("TwCenMT-Condensed",22),
+				XAlign = TextAlignment.End
 			};
+			accionvalor.Behaviors.Add (new NumberValidatorBehavior ());
 			layout.Children.Add (accionvalor,
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width/2;
@@ -530,6 +532,8 @@ namespace PaZos
 			var resultado = await new RestAccionesAhorradorasEjecucion().guardar(acciones);
 
 			DisplayAlert("Evaluación del día", "Acción actualizada", "OK");
+
+			Selected (diaselected);
 		}
 
 	}

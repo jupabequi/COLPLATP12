@@ -230,13 +230,18 @@ namespace PaZos
 			y = y + 40 + 2;
 			entvalor = new ExtendedEntry() {
 				Placeholder = "$",
-				Font = Font.OfSize("TwCenMT-Condensed",28),
+				Font = Font.OfSize("TwCenMT-Condensed",26),
 				XAlign= TextAlignment.End
 
 			};
 			entvalor.Unfocused += (object sender, FocusEventArgs e) => {
-				if(Convert.ToDouble(entvalor.Text)>100000){
-					enviamensaje();
+				double valor;
+				if (!Double.TryParse(entvalor.Text, out valor)) {
+					DisplayAlert("Meta 1", "Valor no es numérico", "Corregir");
+				}else{
+					if(Convert.ToDouble(entvalor.Text)>100000){
+						enviamensaje();
+					}
 				}
 			};
 			entvalor.Behaviors.Add (new NumberValidatorBehavior ());
@@ -245,7 +250,7 @@ namespace PaZos
 				Constraint.Constant (20),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2;
+					return (Parent.Width-40)/2-30;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 40;
@@ -260,11 +265,11 @@ namespace PaZos
 			};
 			layout.Children.Add (lbinicia,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2+5+20;
+					return (Parent.Width-40)/2+5+20-30;
 				}),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 10;
@@ -283,11 +288,11 @@ namespace PaZos
 
 			layout.Children.Add (dtinicio,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2+5+20;
+					return (Parent.Width-40)/2+5+20-30;
 				}),
 				Constraint.Constant (y+10),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 30;
@@ -300,11 +305,11 @@ namespace PaZos
 			};
 			layout.Children.Add (lbTermina,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4*3+5+20;
+					return (Parent.Width-40)/4*3+5+20-15;
 				}),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 10;
@@ -316,11 +321,11 @@ namespace PaZos
 			};
 			layout.Children.Add (dtfinal,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4*3+5+20;
+					return (Parent.Width-40)/4*3+5+20-15;
 				}),
 				Constraint.Constant (y+10),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 30;
@@ -406,7 +411,7 @@ namespace PaZos
 			y = y + 40 + 2;
 			entvalor2 = new ExtendedEntry() {
 				Placeholder = "$",
-				Font = Font.OfSize("TwCenMT-Condensed",28),
+				Font = Font.OfSize("TwCenMT-Condensed",26),
 				XAlign= TextAlignment.End
 			};
 			entvalor2.Behaviors.Add (new NumberValidatorBehavior ());
@@ -414,14 +419,20 @@ namespace PaZos
 				Constraint.Constant (20),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2;
+					return (Parent.Width-40)/2-30;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 40;
 				}));
 			entvalor2.Unfocused += (object sender, FocusEventArgs e) => {
-				if(Convert.ToDouble(entvalor2.Text)>100000){
-					enviamensaje();
+				double valor;
+				if (!Double.TryParse(entvalor2.Text, out valor)) {
+					DisplayAlert("Meta 2", "Valor no es numérico", "Corregir");
+				}else{
+
+					if(Convert.ToDouble(entvalor2.Text)>100000){
+						enviamensaje();
+					}
 				}
 			};
 
@@ -466,11 +477,11 @@ namespace PaZos
 			};
 			layout.Children.Add (lbinicia2,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2+5+20;
+					return (Parent.Width-40)/2+5+20-30;
 				}),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 10;
@@ -482,11 +493,11 @@ namespace PaZos
 			};
 			layout.Children.Add (dtinicio2,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2+5+20;
+					return (Parent.Width-40)/2+5+20-30;
 				}),
 				Constraint.Constant (y+10),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 30;
@@ -500,11 +511,11 @@ namespace PaZos
 			};
 			layout.Children.Add (lbTermina2,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4*3+5+20;
+					return (Parent.Width-40)/4*3+5+20-15;
 				}),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 10;
@@ -516,11 +527,11 @@ namespace PaZos
 			};
 			layout.Children.Add (dtfinal2,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4*3+5+20;
+					return (Parent.Width-40)/4*3+5+20-15;
 				}),
 				Constraint.Constant (y+10),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 30;
@@ -620,7 +631,7 @@ namespace PaZos
 			y = y + 40 + 2;
 			entvalor3 = new ExtendedEntry() {
 				Placeholder = "$",
-				Font = Font.OfSize("TwCenMT-Condensed",28),
+				Font = Font.OfSize("TwCenMT-Condensed",26),
 				XAlign= TextAlignment.End
 			};
 			entvalor3.Behaviors.Add (new NumberValidatorBehavior ());
@@ -628,14 +639,20 @@ namespace PaZos
 				Constraint.Constant (20),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2;
+					return (Parent.Width-40)/2-30;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 40;
 				}));
 			entvalor3.Unfocused += (object sender, FocusEventArgs e) => {
-				if(Convert.ToDouble(entvalor3.Text)>100000){
-					enviamensaje();
+				double valor;
+				if (!Double.TryParse(entvalor3.Text, out valor)) {
+					DisplayAlert("Meta 3", "Valor no es numérico", "Corregir");
+				}else{
+
+					if(Convert.ToDouble(entvalor3.Text)>100000){
+						enviamensaje();
+					}
 				}
 			};
 
@@ -647,11 +664,11 @@ namespace PaZos
 			};
 			layout.Children.Add (lbinicia3,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2+5+20;
+					return (Parent.Width-40)/2+5+20-30;
 				}),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 10;
@@ -662,11 +679,11 @@ namespace PaZos
 			};
 			layout.Children.Add (dtinicio3,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/2+5+20;
+					return (Parent.Width-40)/2+5+20-30;
 				}),
 				Constraint.Constant (y+10),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 30;
@@ -679,11 +696,11 @@ namespace PaZos
 			};
 			layout.Children.Add (lbTermina3,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4*3+5+20;
+					return (Parent.Width-40)/4*3+5+20-15;
 				}),
 				Constraint.Constant (y),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 10;
@@ -694,11 +711,11 @@ namespace PaZos
 			};
 			layout.Children.Add (dtfinal3,
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4*3+5+20;
+					return (Parent.Width-40)/4*3+5+20-15;
 				}),
 				Constraint.Constant (y+10),
 				Constraint.RelativeToParent ((Parent) => {
-					return (Parent.Width-40)/4-5;
+					return (Parent.Width-40)/4-5+15;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 30;
@@ -779,10 +796,24 @@ namespace PaZos
 			eMetas Lmeta2 = new eMetas ();
 			eMetas Lmeta3 = new eMetas ();
 
+			double valor1, valor2, valor3;
+
+			if (!Double.TryParse(entvalor.Text, out valor1)) {
+				DisplayAlert("Meta 1", "Valor no es numérico", "OK");
+			}
+			if (!Double.TryParse(entvalor2.Text, out valor2)) {
+				DisplayAlert("Meta 2", "Valor no es numérico", "OK");
+			}
+			if (!Double.TryParse(entvalor3.Text, out valor3)) {
+				DisplayAlert("Meta 3", "Valor no es numérico", "OK");
+			}
+
+
+
 			Lmeta.Id = Id;
 			Lmeta.tipo = pkTipoMeta.SelectedIndex;
 			Lmeta.meta = entmeta.Text;
-			Lmeta.valor = Convert.ToDouble(entvalor.Text);
+			Lmeta.valor = valor1;
 			Lmeta.fechainicio = dtinicio.Date;
 			Lmeta.fechaFinal = dtfinal.Date;
 			Lmeta.tipoAhorro = pkTipoAhorro.SelectedIndex;
@@ -790,7 +821,7 @@ namespace PaZos
 			Lmeta2.Id = Id2;
 			Lmeta2.tipo = pkTipoMeta2.SelectedIndex;
 			Lmeta2.meta = entmeta2.Text;
-			Lmeta2.valor = Convert.ToDouble(entvalor2.Text);
+			Lmeta2.valor = valor2;
 			Lmeta2.fechainicio = dtinicio2.Date;
 			Lmeta2.fechaFinal = dtfinal2.Date;
 			Lmeta2.tipoAhorro = pkTipoAhorro2.SelectedIndex;
@@ -798,7 +829,7 @@ namespace PaZos
 			Lmeta3.Id = Id3;
 			Lmeta3.tipo = pkTipoMeta3.SelectedIndex;
 			Lmeta3.meta = entmeta3.Text;
-			Lmeta3.valor = Convert.ToDouble(entvalor3.Text);
+			Lmeta3.valor = valor3;
 			Lmeta3.fechainicio = dtinicio3.Date;
 			Lmeta3.fechaFinal = dtfinal3.Date;
 			Lmeta3.tipoAhorro = pkTipoAhorro3.SelectedIndex;
@@ -820,7 +851,7 @@ namespace PaZos
 			Id = ListaMeta [0].Id;
 			pkTipoMeta.SelectedIndex = ListaMeta[0].tipo;
 			entmeta.Text=ListaMeta[0].meta;
-			entvalor.Text=Convert.ToString(ListaMeta[0].valor);
+			entvalor.Text=ListaMeta[0].valor.ToString("N0");
 			dtinicio.Date= Convert.ToDateTime(ListaMeta[0].fechainicio);
 			dtfinal.Date=Convert.ToDateTime(ListaMeta[0].fechaFinal);
 			pkTipoAhorro.SelectedIndex=ListaMeta[0].tipoAhorro;
@@ -828,7 +859,7 @@ namespace PaZos
 			Id2 = ListaMeta [1].Id;
 			pkTipoMeta2.SelectedIndex = ListaMeta[1].tipo;
 			entmeta2.Text=ListaMeta[1].meta;
-			entvalor2.Text=Convert.ToString(ListaMeta[1].valor);
+			entvalor2.Text=ListaMeta[1].valor.ToString("N0");
 			dtinicio2.Date=Convert.ToDateTime(ListaMeta[1].fechainicio);
 			dtfinal2.Date=Convert.ToDateTime(ListaMeta[1].fechaFinal);
 			pkTipoAhorro2.SelectedIndex=ListaMeta[1].tipoAhorro;
@@ -836,7 +867,7 @@ namespace PaZos
 			Id3 = ListaMeta [2].Id;
 			pkTipoMeta3.SelectedIndex = ListaMeta[2].tipo;
 			entmeta3.Text=ListaMeta[2].meta;
-			entvalor3.Text=Convert.ToString(ListaMeta[2].valor);
+			entvalor3.Text=ListaMeta[2].valor.ToString("N0");
 			dtinicio3.Date=Convert.ToDateTime(ListaMeta[2].fechainicio);
 			dtfinal3.Date=Convert.ToDateTime(ListaMeta[2].fechaFinal);
 			pkTipoAhorro3.SelectedIndex=ListaMeta[2].tipoAhorro;

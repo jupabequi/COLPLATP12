@@ -10,6 +10,11 @@ namespace PaZos
 
 		static ILoginManager loginManager;
 		public static App Current;
+		public static Application CurrentApp
+		{
+			get { return Current; }
+		}
+
 
 		public App ()
 		{
@@ -32,9 +37,13 @@ namespace PaZos
 			//MainPage = new NavigationPage(new PaZos.Inicio ());
 		}
 
-		public void ShowMainPage (Usuario usuario)
+		public void ShowMainPage (Usuario usuario, int opc)
 		{	
-			MainPage = new PaZos.MainPage (usuario);
+			if (opc == 0) {
+				MainPage = new PaZos.MainPage (usuario);
+			} else {
+				MainPage = new PaZos.MainPage (usuario,1);
+			}
 		}
 
 
@@ -52,8 +61,8 @@ namespace PaZos
 		public void Logout ()
 		{
 			Properties ["IsLoggedIn"] = false; // only gets set to 'true' on the LoginPage
-			MainPage = new PaZos.LoginModalPage (this,null);
-			//((NavigationPage)master.Detail).PushAsync(new PaZos.LoginModalPage(this));
+			MainPage = new PaZos.inicio(this);
+
 		}
 
 		protected override void OnStart ()
