@@ -8,10 +8,22 @@ namespace PaZos
 	public partial class Felicitaciones : ContentPage
 	{
 		MasterDetailPage master;
+		Usuario usuario;
 
-		public Felicitaciones (MasterDetailPage masterDetail)
+		public Felicitaciones (MasterDetailPage masterDetail, Usuario tusuario)
 		{
-			ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
+			usuario = tusuario;
+
+			var guardaritem = new ToolbarItem {
+				Text = "Continuar"
+			};
+			guardaritem.Clicked += (object sender, System.EventArgs e) => 
+			{
+				continuar();
+			};
+
+			//ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
+			ToolbarItems.Add(guardaritem);
 			this.Title = "Acciones ahorradoras";
 
 			master = masterDetail;
@@ -36,7 +48,7 @@ namespace PaZos
 			//Fin Colocar background 
 			var imgmensaje = new Image () {
 				Source = ImageSource.FromResource ("PaZos.Resources.Felicitaciones.png"),
-				Aspect = Aspect.AspectFill
+				Aspect = Aspect.AspectFit
 			};
 
 			layout.Children.Add (imgmensaje,
@@ -122,6 +134,13 @@ namespace PaZos
 
 
 			Content = layout;
+		}
+
+		public void continuar(){
+
+
+			((NavigationPage)master.Detail).PushAsync(new PaZos.Preguntas(master,usuario));
+
 		}
 	}
 }

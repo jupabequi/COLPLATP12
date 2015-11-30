@@ -45,18 +45,20 @@ namespace PaZos
 
 			//Dias
 			var imgDias = new Image () {
-				Source = ImageSource.FromResource ("PaZos.Resources.AccionesDias.png"),
-				Aspect = Aspect.AspectFill
+				Source = ImageSource.FromResource ("PaZos.Resources.mujer.png"),
+				Aspect = Aspect.AspectFit
 			};
 
 			layout.Children.Add (imgDias,
 				Constraint.Constant (0),
-				Constraint.Constant (-20),
 				Constraint.RelativeToParent ((Parent) => {
-					return Parent.Width;
+					return Parent.Width/375*80;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return Parent.Height;
+					return Parent.Width/375*150;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Height-(Parent.Width/375*80);
 				}));
 
 			//End Dias
@@ -116,6 +118,385 @@ namespace PaZos
 					return 80;
 				}));	
 
+
+			double y = 120, yinicial;
+
+			yinicial = y;
+			int gap;
+			int hoy = 0;
+			int alto = 40;
+			gap = alto + 10;
+			int espacio = alto*2+20+15;
+			int x = 79;
+
+			var imglunes = new Image () {
+				Source = ImageSource.FromResource ("PaZos.Resources.Dias.lunes.png"),
+			};
+
+			layout.Children.Add (imglunes,
+				Constraint.RelativeToParent ((Parent) => {
+
+					if(hoy==1){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*y;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+			var lblunes = new Button () {
+				Text = "",
+				TextColor = Color.White,
+				//BackgroundColor = Color.Blue
+			};
+			lblunes.Clicked += (sender, args) => {
+				Selected(1);
+			};
+
+			layout.Children.Add (lblunes,
+				Constraint.RelativeToParent ((Parent) => {
+					if(hoy==1){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*y;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+
+
+
+
+			//martes
+
+			var imgmartes = new Image () {
+				Source = ImageSource.FromResource ("PaZos.Resources.Dias.martes.png"),
+			};
+
+			layout.Children.Add (imgmartes,
+				Constraint.RelativeToParent ((Parent) => {
+					if(hoy==2){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*(y+gap);
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+			var lbmartes = new Button () {
+				Text = "",
+				TextColor = Color.White,
+				//BackgroundColor = Color.Blue
+			};
+			lbmartes.Clicked += (sender, args) => {
+				Selected(2);
+			};
+
+			layout.Children.Add (lbmartes,
+				Constraint.RelativeToParent ((Parent) => {
+					if(hoy==2){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*(y+gap);
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+			//miercoles
+
+			var imgmiercoles = new Image () {
+				Source = ImageSource.FromResource ("PaZos.Resources.Dias.miercoles.png"),
+			};
+
+
+			layout.Children.Add (imgmiercoles,
+				Constraint.RelativeToParent ((Parent) => {
+					if(hoy==3){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*(y+gap*2);
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+
+			var lbmiercoles = new Button () {
+				Text = "",
+				TextColor = Color.White,
+				//BackgroundColor = Color.Blue
+			};
+			lbmiercoles.Clicked += (sender, args) => {
+				Selected(3);
+			};
+
+			layout.Children.Add (lbmiercoles,
+				Constraint.RelativeToParent ((Parent) => {
+					if(hoy==3){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*(y+gap*2);
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+			//jueves
+
+			var imgjueves = new Image () {
+				Source = ImageSource.FromResource ("PaZos.Resources.Dias.Jueves.png"),
+			};
+
+			layout.Children.Add (imgjueves,
+				Constraint.RelativeToParent ((Parent) => {
+					if(hoy==4){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*(y+gap*3);
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+			var lbjueves = new Button () {
+				Text = "",
+				TextColor = Color.White,
+				//BackgroundColor = Color.Blue
+			};
+			lbjueves.Clicked += (sender, args) => {
+				Selected(4);
+			};
+
+			layout.Children.Add (lbjueves,
+				Constraint.RelativeToParent ((Parent) => {
+					if(hoy==4){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*(y+gap*3);
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+			//viernes
+
+			var imgviernes = new Image () {
+				Source = ImageSource.FromResource ("PaZos.Resources.Dias.Viernes.png")
+			};
+
+
+			layout.Children.Add (imgviernes,
+				Constraint.RelativeToParent ((Parent) => {
+					if(hoy==5){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*(y+gap*4);
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+			var lbviernes = new Button () {
+				Text = "",
+				TextColor = Color.White,
+				//BackgroundColor = Color.Blue
+			};
+			lbviernes.Clicked += (sender, args) => {
+				Selected(5);
+			};
+
+			layout.Children.Add (lbviernes,
+				Constraint.RelativeToParent ((Parent) => {
+					if(hoy==5){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*(y+gap*4);
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+			//sabado
+
+			var imgsabado = new Image () {
+				Source = ImageSource.FromResource ("PaZos.Resources.Dias.Sabado.png")
+			};
+
+
+			layout.Children.Add (imgsabado,
+				Constraint.RelativeToParent ((Parent) => {
+					if(hoy==6){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*(y+gap*5);
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+			var lbsabado = new Button () {
+				Text = "",
+				TextColor = Color.White,
+				//BackgroundColor = Color.Blue
+			};
+			lbsabado.Clicked += (sender, args) => {
+				Selected(6);
+			};
+
+			layout.Children.Add (lbsabado,
+				Constraint.RelativeToParent ((Parent) => {
+					if(hoy==6){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*(y+gap*5);
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+
+			//domingo
+
+			var imgdomingo = new Image () {
+				Source = ImageSource.FromResource ("PaZos.Resources.Dias.Domingo.png")
+			};
+
+
+			layout.Children.Add (imgdomingo,
+				Constraint.RelativeToParent ((Parent) => {
+					if(hoy==7){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*(y+gap*6);
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+			var lbdomingo = new Button () {
+				Text = "",
+				TextColor = Color.White,
+				//BackgroundColor = Color.Blue
+			};
+			lbdomingo.Clicked += (sender, args) => {
+				Selected(7);
+			};
+
+			layout.Children.Add (lbdomingo,
+				Constraint.RelativeToParent ((Parent) => {
+					if(hoy==7){
+						return 10;
+					}else{
+						return Parent.Width/2 - Parent.Width/375*x;
+					}
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width/375*(y+gap*6);
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return 250;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return alto;
+				}));
+
+
+			/*
 
 
 			int x = 118;
@@ -278,7 +659,7 @@ namespace PaZos
 					return 40;
 				}));
 
-
+*/
 
 
 			Content = layout;

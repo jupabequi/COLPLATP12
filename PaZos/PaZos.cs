@@ -27,8 +27,17 @@ namespace PaZos
 			// we remember if they're logged in, and only display the login page if they're not
 			if (isLoggedIn && user!=null) {
 
+				Usuario usu = new Usuario ();
+
+				usu.Id = (int)user;
+				usu.nombre = "";
+				usu.ocupacion = "";
+				usu.pais = 1;
+				usu.genero = 0;
+				usu.apellidos = "";
+
 				int usuario = (int)Properties ["usuario"];
-				MainPage = new PaZos.MainPage (null);
+				MainPage = new PaZos.MainPage (usu);
 			}
 			else
 				//MainPage = new LoginModalPage (this);
@@ -56,7 +65,10 @@ namespace PaZos
 		{	
 			MainPage = new PaZos.LoginModalPage (this, usuario);
 		}
-
+		public void ShowOlvido ()
+		{	
+			MainPage = new PaZos.OlvidasteContrasena ();
+		}
 
 		public void Logout ()
 		{

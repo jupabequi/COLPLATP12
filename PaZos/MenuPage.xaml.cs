@@ -32,8 +32,8 @@ namespace PaZos
 			
 			usuario = tusuario;
 	
-			Title = "-";
-			//Icon = "slideout.png";
+			Title = "Menú";
+			Icon = "menuicon44.png";
 			master = masterDetail;
 
 

@@ -32,7 +32,7 @@ namespace PaZos.iOS
 
 		
 
-			UINavigationBar.Appearance.SetBackgroundImage (UIImage.FromResource(null, "PaZos.iOS.Resources.menuicon.png"), UIBarMetrics.Default);
+			//UINavigationBar.Appearance.SetBackgroundImage (UIImage.FromResource(null, "PaZos.iOS.Resources.menuicon.png"), UIBarMetrics.Default);
 
 			return base.FinishedLaunching (app, options);
 		}

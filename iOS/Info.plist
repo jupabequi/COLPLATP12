@@ -28,7 +28,9 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array/>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon-60@2x</string>
@@ -54,12 +56,12 @@
 	<string>LaunchScreen</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>fonts/arial narrow.ttf</string>
-		<string>fonts/arial narrow bold.ttf</string>
+		<string>Fonts/arial narrow.ttf</string>
+		<string>Fonts/arial narrow bold.ttf</string>
 		<string>Fonts/myriadpro-bold.otf</string>
-		<string>fonts/myriadpro-regular.otf</string>
-		<string>fonts/noteworthy.ttc</string>
-		<string>fonts/tcmm.ttf</string>
+		<string>Fonts/myriadpro-regular.otf</string>
+		<string>Fonts/noteworthy.ttc</string>
+		<string>Fonts/tcmm.ttf</string>
 	</array>
 	<key>XSLaunchImageAssets</key>
 	<string>Resources/Images.xcassets/LaunchImage-1.launchimage</string>

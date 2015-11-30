@@ -44,7 +44,7 @@ namespace PaZos
 			//Fin Colocar background 
 			var imgmensaje = new Image () {
 				Source = ImageSource.FromResource ("PaZos.Resources.Accionesmensaje2.png"),
-				Aspect = Aspect.AspectFill
+				Aspect = Aspect.AspectFit
 			};
 
 			layout.Children.Add (imgmensaje,

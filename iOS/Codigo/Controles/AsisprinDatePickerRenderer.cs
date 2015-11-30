@@ -7,10 +7,10 @@ using XLabs.Forms.Controls;
 [assembly: ExportRenderer (typeof(AsisprinDatePicker), typeof(PaZos.iOS.AsisprinDatePickerRenderer))]
 namespace PaZos.iOS
 {
-	public class AsisprinDatePickerRenderer : ExtendedDatePickerRenderer
+	public class AsisprinDatePickerRenderer : DatePickerRenderer
 	{
 
-		protected override void OnElementChanged (ElementChangedEventArgs<ExtendedDatePicker> e)
+		protected override void OnElementChanged (ElementChangedEventArgs<DatePicker> e)
 		{
 			base.OnElementChanged (e);
 

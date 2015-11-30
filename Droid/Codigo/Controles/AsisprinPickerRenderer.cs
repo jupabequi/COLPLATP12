@@ -9,6 +9,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using XLabs.Forms.Controls;
 
 
 [assembly: ExportRenderer (typeof(AsisprinPicker), typeof(PaZos.Droid.AsisprinPickerRenderer))]
@@ -16,7 +17,8 @@ namespace PaZos.Droid
 {
 	public class AsisprinPickerRenderer : PickerRenderer
 	{
-		protected override void OnElementChanged (ElementChangedEventArgs<Entry> e)
+		
+		protected override void OnElementChanged (ElementChangedEventArgs<Picker> e)
 		{
 			base.OnElementChanged (e);
 

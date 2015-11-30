@@ -29,6 +29,7 @@ namespace PaZos
 		{
 			usuario = tusuario;
 
+
 			var menupage = new MenuPage (this, usuario);
 			Detail = new NavigationPage (new progreso (this,usuario));
 			Master = menupage;

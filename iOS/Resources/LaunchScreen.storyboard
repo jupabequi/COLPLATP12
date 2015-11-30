@@ -16,17 +16,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" misplaced="YES" image="FondoLogin.png" translatesAutoresizingMaskIntoConstraints="NO" id="23" autoresizesSubviews="NO" tag="0">
-                                <rect key="frame" x="0.0" y="46" width="600" height="554"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="FondoLogin.png" translatesAutoresizingMaskIntoConstraints="NO" id="23" autoresizesSubviews="NO" tag="0" misplaced="YES">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="545"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 </variation>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="87" translatesAutoresizingMaskIntoConstraints="NO" image="launch640x960.png" misplaced="YES">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="23" firstAttribute="centerY" secondItem="yd7-JS-zBw" secondAttribute="centerY" priority="1" id="39"/>
                             <constraint firstItem="23" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" priority="1" id="41"/>
+                            <constraint id="70" firstItem="9ZL-r4-8FZ" firstAttribute="top" secondItem="23" secondAttribute="bottom"/>
+                            <constraint id="71" firstItem="23" firstAttribute="top" secondItem="Y8P-hJ-Z43" secondAttribute="bottom"/>
+                            <constraint id="72" firstItem="23" firstAttribute="leading" secondItem="yd7-JS-zBw" secondAttribute="leading"/>
+                            <constraint id="73" firstItem="yd7-JS-zBw" firstAttribute="trailing" secondItem="23" secondAttribute="trailing"/>
+                            <constraint id="80" firstItem="yd7-JS-zBw" firstAttribute="trailing" secondItem="23" secondAttribute="trailing"/>
+                            <constraint id="88" firstItem="23" firstAttribute="trailing" secondItem="87" secondAttribute="trailing"/>
+                            <constraint id="89" firstItem="87" firstAttribute="top" secondItem="Y8P-hJ-Z43" secondAttribute="bottom"/>
+                            <constraint id="90" firstItem="9ZL-r4-8FZ" firstAttribute="top" secondItem="87" secondAttribute="bottom" constant="59"/>
+                            <constraint id="91" firstItem="87" firstAttribute="leading" secondItem="23" secondAttribute="leading" constant="142"/>
+                            <constraint id="96" firstItem="23" firstAttribute="trailing" secondItem="87" secondAttribute="trailing" constant="68"/>
+                            <constraint id="97" firstItem="9ZL-r4-8FZ" firstAttribute="top" secondItem="87" secondAttribute="bottom"/>
+                            <constraint id="98" firstItem="87" firstAttribute="leading" secondItem="23" secondAttribute="leading"/>
+                            <constraint id="99" firstItem="87" firstAttribute="top" secondItem="23" secondAttribute="top"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -52,8 +68,4 @@
         <image name="inicio2.png" width="375" height="610"/>
         <image name="inicio2320x480.png" width="295" height="480"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-        <simulatedOrientationMetrics key="orientation"/>
-    </simulatedMetricsContainer>
 </document>

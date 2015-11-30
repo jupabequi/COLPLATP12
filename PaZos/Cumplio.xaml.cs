@@ -50,7 +50,7 @@ namespace PaZos
 			//Fin Colocar background 
 			var imgmensaje = new Image () {
 				Source = ImageSource.FromResource ("PaZos.Resources.cumplio.png"),
-				Aspect = Aspect.AspectFill
+				Aspect = Aspect.AspectFit
 			};
 
 			layout.Children.Add (imgmensaje,
@@ -171,7 +171,7 @@ namespace PaZos
 			layout.Children.Add (lbtexto3,
 				Constraint.Constant (40),
 				Constraint.RelativeToParent ((Parent) => {
-					return Parent.Width*260/factor;	
+					return Parent.Width*250/factor;	
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width-80;
@@ -190,9 +190,9 @@ namespace PaZos
 
 			if (slino.IsToggled) {
 
-				((NavigationPage)master.Detail).PushAsync(new PaZos.Felicitaciones(master));
+				((NavigationPage)master.Detail).PushAsync(new PaZos.Felicitaciones(master,usuario));
 			} else {
-				((NavigationPage)master.Detail).PushAsync(new PaZos.Animo(master));
+				((NavigationPage)master.Detail).PushAsync(new PaZos.Animo(master,usuario));
 			}
 		}
 	}

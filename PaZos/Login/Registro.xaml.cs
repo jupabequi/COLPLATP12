@@ -455,9 +455,14 @@ namespace PaZos
 
 
 			ListaPaises = await new RestPaises().get();
-			foreach (Paises tPais in ListaPaises)
-			{
-				pkPais.Items.Add(tPais.nombre);
+
+			if (ListaPaises.Count > 0) {
+
+				foreach (Paises tPais in ListaPaises) {
+					pkPais.Items.Add (tPais.nombre);
+				}
+			} else {
+				DisplayAlert ("Acceso a datos", "Problemas en la comunicación.", "Aceptar");
 			}
 
 
@@ -481,8 +486,13 @@ namespace PaZos
 
 			if (pkPais.SelectedIndex != -1) {
 				ListaDepartamentos = await new RestPaises ().getDepartamentos (ListaPaises [pkPais.SelectedIndex]);
-				foreach (Departamentos tDepartamento in ListaDepartamentos) {
-					pkDepartamento.Items.Add (tDepartamento.nombre);
+
+				if (ListaDepartamentos.Count > 0) {
+					foreach (Departamentos tDepartamento in ListaDepartamentos) {
+						pkDepartamento.Items.Add (tDepartamento.nombre);
+					}
+				} else {
+					DisplayAlert ("Acceso a datos", "Problemas en la comunicación.", "Aceptar");
 				}
 			}
 
@@ -493,8 +503,12 @@ namespace PaZos
 
 			if (pkDepartamento.SelectedIndex != -1) {
 				ListaCiudades = await new RestPaises ().getCiudades (ListaDepartamentos [pkDepartamento.SelectedIndex]);
-				foreach (Ciudades tCiudades in ListaCiudades) {
-					pkCiudad.Items.Add (tCiudades.nombre);
+				if (ListaCiudades.Count > 0) {
+					foreach (Ciudades tCiudades in ListaCiudades) {
+						pkCiudad.Items.Add (tCiudades.nombre);
+					}
+				} else {
+					DisplayAlert ("Acceso a datos", "Problemas en la comunicación.", "Aceptar");
 				}
 			}
 

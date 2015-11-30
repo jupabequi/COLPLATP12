@@ -19,7 +19,7 @@ namespace PaZos
 		Entry entmeta;
 		ExtendedEntry entvalor;
 		AsisprinDatePicker dtinicio;
-		DatePicker dtfinal;
+		AsisprinDatePicker dtfinal;
 		Entry entacumulado;
 		Entry porcentaje;
 
@@ -28,8 +28,8 @@ namespace PaZos
 		Picker pkTipoMeta2;
 		Entry entmeta2;
 		ExtendedEntry entvalor2;
-		ExtendedDatePicker dtinicio2;
-		DatePicker dtfinal2;
+		AsisprinDatePicker dtinicio2;
+		AsisprinDatePicker dtfinal2;
 		Entry entacumulado2;
 		Entry porcentaje2;
 
@@ -38,8 +38,8 @@ namespace PaZos
 		Picker pkTipoMeta3;
 		Entry entmeta3;
 		ExtendedEntry entvalor3;
-		ExtendedDatePicker dtinicio3;
-		DatePicker dtfinal3;
+		AsisprinDatePicker dtinicio3;
+		AsisprinDatePicker dtfinal3;
 		Entry entacumulado3;
 		Entry porcentaje3;
 
@@ -50,7 +50,7 @@ namespace PaZos
 			this.Title = "Progreso";
 			usuario = tusuario;
 
-			//this.Icon =  "Resources/menuicon.png";
+			//this.Icon =  "menuicon44.png";
 
 			//cargarImagenes ();
 
@@ -724,34 +724,43 @@ namespace PaZos
 			
 			ListaMeta = await new RestProgreso ().get (usuario);
 
+			DateTime fecha = DateTime.Now;
 
-			Id = ListaMeta [0].Id;
-			pkTipoMeta.SelectedIndex = ListaMeta[0].tipo;
-			entmeta.Text=ListaMeta[0].meta;
-			entvalor.Text="$ " + ListaMeta[0].valor.ToString("N0");
-			dtinicio.Date= Convert.ToDateTime(ListaMeta[0].fechainicio);
-			dtfinal.Date=Convert.ToDateTime(ListaMeta[0].fechaFinal);
-			entacumulado.Text = "$ " + ListaMeta [0].acumulado.ToString("N0");
-			porcentaje.Text = ListaMeta [0].porcentaje.ToString() + "%";
+			if (ListaMeta !=null) {
+				Id = ListaMeta [0].Id;
+				pkTipoMeta.SelectedIndex = ListaMeta [0].tipo;
+				entmeta.Text = ListaMeta [0].meta;
+				entvalor.Text = "$ " + ListaMeta [0].valor.ToString ("N0");
+				dtinicio.Date = Convert.ToDateTime (ListaMeta [0].fechainicio);
+				dtfinal.Date = Convert.ToDateTime (ListaMeta [0].fechaFinal);
+				entacumulado.Text = "$ " + ListaMeta [0].acumulado.ToString ("N0");
+				porcentaje.Text = ListaMeta [0].porcentaje.ToString () + "%";
 
-			Id2 = ListaMeta [1].Id;
-			pkTipoMeta2.SelectedIndex = ListaMeta[1].tipo;
-			entmeta2.Text=ListaMeta[1].meta;
-			entvalor2.Text="$ " + ListaMeta[1].valor.ToString("N0");
-			dtinicio2.Date=Convert.ToDateTime(ListaMeta[1].fechainicio);
-			dtfinal2.Date=Convert.ToDateTime(ListaMeta[1].fechaFinal);
-			entacumulado2.Text ="$ " + ListaMeta [1].acumulado.ToString("N0");
-			porcentaje2.Text = ListaMeta [1].porcentaje.ToString()+"%";
+				Id2 = ListaMeta [1].Id;
+				pkTipoMeta2.SelectedIndex = ListaMeta [1].tipo;
+				entmeta2.Text = ListaMeta [1].meta;
+				entvalor2.Text = "$ " + ListaMeta [1].valor.ToString ("N0");
+				dtinicio2.Date = Convert.ToDateTime (ListaMeta [1].fechainicio);
+				dtfinal2.Date = Convert.ToDateTime (ListaMeta [1].fechaFinal);
+				entacumulado2.Text = "$ " + ListaMeta [1].acumulado.ToString ("N0");
+				porcentaje2.Text = ListaMeta [1].porcentaje.ToString () + "%";
 
-			Id3 = ListaMeta [2].Id;
-			pkTipoMeta3.SelectedIndex = ListaMeta[2].tipo;
-			entmeta3.Text=ListaMeta[2].meta;
-			entvalor3.Text="$ " + ListaMeta[2].valor.ToString("N0");
-			dtinicio3.Date=Convert.ToDateTime(ListaMeta[2].fechainicio);
-			dtfinal3.Date=Convert.ToDateTime(ListaMeta[2].fechaFinal);
-			entacumulado3.Text = "$ " + ListaMeta [2].acumulado.ToString("N0");
-			porcentaje3.Text = ListaMeta [2].porcentaje.ToString() + "%";
+				Id3 = ListaMeta [2].Id;
+				pkTipoMeta3.SelectedIndex = ListaMeta [2].tipo;
+				entmeta3.Text = ListaMeta [2].meta;
+				entvalor3.Text = "$ " + ListaMeta [2].valor.ToString ("N0");
+				dtinicio3.Date = Convert.ToDateTime (ListaMeta [2].fechainicio);
+				dtfinal3.Date = Convert.ToDateTime (ListaMeta [2].fechaFinal);
+				entacumulado3.Text = "$ " + ListaMeta [2].acumulado.ToString ("N0");
+				porcentaje3.Text = ListaMeta [2].porcentaje.ToString () + "%";
 
+
+				if (fecha > ListaMeta [0].fechaFinal || fecha > ListaMeta [1].fechaFinal || fecha > ListaMeta [2].fechaFinal) {
+					((NavigationPage)master.Detail).PushAsync (new Cumplio (master, usuario));
+				}
+			} else {
+				DisplayAlert ("Sin registros", "Necesitas registrar avances.", "Aceptar");
+			}
 		}
 	}
 }

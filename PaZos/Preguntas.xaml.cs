@@ -58,6 +58,22 @@ namespace PaZos
 			int altura = 60;
 
 
+			BoxView boxViewnegro = new BoxView {
+
+				Color = Color.Black
+
+
+			};
+
+			layoutcontent.Children.Add (boxViewnegro,
+				Constraint.Constant (19),
+				Constraint.Constant (y-11),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width-38;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return altura*5+22;
+				}));
 			BoxView boxView = new BoxView {
 
 				Color = Color.White
@@ -74,7 +90,6 @@ namespace PaZos
 				Constraint.RelativeToParent ((Parent) => {
 					return altura*5+20;
 				}));
-
 
 
 

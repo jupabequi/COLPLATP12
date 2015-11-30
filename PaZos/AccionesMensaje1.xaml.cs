@@ -39,7 +39,7 @@ namespace PaZos
 			//Colocar background
 			var imgBackground2 = new Image () {
 				Source = ImageSource.FromResource ("PaZos.Resources.accionesmensaje1.png"),
-				Aspect = Aspect.AspectFill
+				Aspect = Aspect.AspectFit
 			};
 
 			layout.Children.Add (imgBackground2,
@@ -94,10 +94,14 @@ namespace PaZos
 			lbtexto.FormattedText = fs;
 
 			layout.Children.Add (lbtexto,
-				Constraint.Constant (45),
-				Constraint.Constant (35),
 				Constraint.RelativeToParent ((Parent) => {
-					return Parent.Width-90;
+					return Parent.Width*50/375;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width*40/375;
+				}),
+				Constraint.RelativeToParent ((Parent) => {
+					return Parent.Width-(Parent.Width*100/375);
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return 160;

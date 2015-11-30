@@ -64,7 +64,7 @@ namespace PaZos
 				BackgroundColor = Color.White,
 				IsPassword=true,
 				Font = Font.OfSize("TwCenMT-Condensed",18)
-			
+
 			};
 			//password.WidthRequest = 280;
 
@@ -74,7 +74,9 @@ namespace PaZos
 				VerticalOptions = LayoutOptions.Center,
 				Font = Font.OfSize("MyriadPro-Regular",12)
 			};
-
+			btnolvido.Clicked += (sender, e) => {
+				olvido(ilm);
+			};
 
 			var abslayout = new RelativeLayout  ();
 
@@ -250,6 +252,10 @@ namespace PaZos
 
 
 
+		}
+
+		public void olvido(ILoginManager ilm){
+			ilm.ShowOlvido ();
 		}
 
 	}

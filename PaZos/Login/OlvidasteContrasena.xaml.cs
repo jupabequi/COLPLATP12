@@ -5,23 +5,17 @@ using Xamarin.Forms;
 
 namespace PaZos
 {
-	public partial class acerca : ContentPage
+	public partial class OlvidasteContrasena : ContentPage
 	{
-		MasterDetailPage master;
-		private NavigationPage NPdias;
-
-		public acerca (MasterDetailPage masterDetail)
+		public OlvidasteContrasena ()
 		{
-			master = masterDetail;
-
-			ToolbarItems.Add(new ToolbarItem(){Icon="pazosicon.png"});
-			this.Title = "Acerca de..";
+			this.Title = "Registro";
 
 			RelativeLayout layout = new RelativeLayout ();
 
 			//Colocar background
 			var imgBackground = new Image () {
-				Source = ImageSource.FromResource ("PaZos.Resources.FondoAcciones.png"),
+				Source = ImageSource.FromResource ("PaZos.Resources.FondoLogin.png"),
 				Aspect = Aspect.AspectFill
 			};
 
@@ -35,24 +29,19 @@ namespace PaZos
 					return Parent.Height;
 				}));
 
-			var imgBackground2 = new Image () {
-				Source = ImageSource.FromResource ("PaZos.Resources.acercade2.png"),
-				Aspect = Aspect.AspectFit
-			};
 
-			layout.Children.Add (imgBackground2,
+			BoxView bv = new BoxView () {
+				BackgroundColor = Color.FromRgb(232,78,27)
+			};
+			layout.Children.Add (bv,
 				Constraint.Constant (0),
 				Constraint.Constant (0),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Width;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
-					return Parent.Height;
+					return 60;
 				}));
-			
-
-
-
 
 			Content = layout;
 		}
