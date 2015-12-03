@@ -456,7 +456,7 @@ namespace PaZos
 
 			ListaPaises = await new RestPaises().get();
 
-			if (ListaPaises.Count > 0) {
+			if (ListaPaises != null) {
 
 				foreach (Paises tPais in ListaPaises) {
 					pkPais.Items.Add (tPais.nombre);
@@ -487,7 +487,7 @@ namespace PaZos
 			if (pkPais.SelectedIndex != -1) {
 				ListaDepartamentos = await new RestPaises ().getDepartamentos (ListaPaises [pkPais.SelectedIndex]);
 
-				if (ListaDepartamentos.Count > 0) {
+				if (ListaDepartamentos != null) {
 					foreach (Departamentos tDepartamento in ListaDepartamentos) {
 						pkDepartamento.Items.Add (tDepartamento.nombre);
 					}
@@ -503,7 +503,7 @@ namespace PaZos
 
 			if (pkDepartamento.SelectedIndex != -1) {
 				ListaCiudades = await new RestPaises ().getCiudades (ListaDepartamentos [pkDepartamento.SelectedIndex]);
-				if (ListaCiudades.Count > 0) {
+				if (ListaCiudades != null) {
 					foreach (Ciudades tCiudades in ListaCiudades) {
 						pkCiudad.Items.Add (tCiudades.nombre);
 					}

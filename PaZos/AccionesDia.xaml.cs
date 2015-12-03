@@ -181,7 +181,7 @@ namespace PaZos
 
 			var Lista = await new RestAccionesAhorradoras ().get (usuario);
 
-			if (Lista.Count > 0) {
+			if (Lista != null) {
 				int j = Lista.Count + 1;
 				y = 15;
 				Label lbvalor;

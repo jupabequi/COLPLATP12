@@ -49,9 +49,9 @@ namespace PaZos
 		public void ShowMainPage (Usuario usuario, int opc)
 		{	
 			if (opc == 0) {
-				MainPage = new PaZos.MainPage (usuario);
+				MainPage = new MainPage (usuario);
 			} else {
-				MainPage = new PaZos.MainPage (usuario,1);
+				MainPage = new MainPage (usuario,1);
 			}
 		}
 

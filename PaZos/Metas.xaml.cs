@@ -77,7 +77,7 @@ namespace PaZos
 				Constraint.Constant (0),
 				Constraint.Constant (0),
 				Constraint.RelativeToParent ((Parent) => {
-					return Parent.Width*2;
+					return Parent.Width;
 				}),
 				Constraint.RelativeToParent ((Parent) => {
 					return Parent.Height;
@@ -847,7 +847,7 @@ namespace PaZos
 
 			ListaMeta = await new RestMetas ().get (usuario);
 
-			if (ListaMeta.Count > 0) {
+			if (ListaMeta != null) {
 
 
 				Id = ListaMeta [0].Id;

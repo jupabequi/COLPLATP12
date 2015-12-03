@@ -221,7 +221,11 @@ namespace PaZos
 		protected async void CompruebaUser(ILoginManager ilm){
 
 			respuesta = 0;
+			string txtprueba;
 			usuario = await new RestUsuarios ().get(username.Text,password.Text);
+
+
+			//DisplayAlert("Error de validación", usuario.Count.ToString(), "Intente nuevamente");
 
 			if (usuario.Count > 0) {
 				respuesta = 1;
